@@ -45,8 +45,9 @@ Below we have created a preview running as a c# console application so you can t
     using System.IO;
     namespace bitzipver1
     {
-class zipclass
-{
+    class zipclass
+    {
+ 
 
     private static string encodedText;
     static Dictionary<string, char> symbolDictionary;
