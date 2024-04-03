@@ -1,5 +1,6 @@
 # StenoNFT
-Multilayer NFT Place Encoder/Decoder - Hunffman Loop  
+This project is not an NFT project. The main purpose of the project is to create a chain of protocols for transforming the form of digital data and adding different data into it. The launch is based on NFTs because they are the most suitable case for the initial stage. However, our roadmap is designed with a mission to reach a technology called StenoSimulation. The logic of the algorithms and the codes provided below represent the first version of the data processing concept through NFTs.
+
 
 Objectives:  The main goal of StenoNFT AI is to enable images to communicate in a decentralized way by hiding and retrieving data in pixels (data packets such as classic text or program trigger codes, etc.). This system extends the use of NFTs, allowing users to develop new applications on the system. For example, data security and monitoring, automatic triggering and contract execution, tokenization and licensing, data verification and identity management, distributed transaction optimization, alternative blockchain communication module. In this way, the goal of the project is to expand the use of NFTs to perform community activities in a unique way and use NFTs more effectively in different fields.
 
@@ -1026,14 +1027,16 @@ This process maps the numeric RGB values of an image to the numeric equivalents 
 In the first stage, we used a very simple stenographic processing algorithm, where the blue color is selected in the RGB values and the values are replaced with ASCII values starting from the end. Instead of this algorithm, we could have performed stenography on the values with the lowest pixels for any color, or we could have used a password that we received from the user to select which pixels to select. However, we decided to keep this part quite simple in the first version and concentrate all our weight on repetitive hunffman combinations. In our roadmap, we aim to complicate stenographic operations in STENONFT version 1.1, which is the first update we will receive after launch.
 
 
-Upon completion, the metadata, including the representations, is sent to the blockchain, and the reversal process takes place through a smart contract with blockchain confirmation again. Once the data sent to the blockchain is recorded on the chain, the image is added to the Internet of NFT network.
+After the completion of the processes, metadata containing representations are sent to the blockchain, and the reversal process also occurs through blockchain confirmation via a smart contract. Once the data sent to the blockchain is recorded, the addition of the image to the Internet of NFT network takes place.
 
 INTERNET OF NFT NETWORK
 
-This is a network for developers who want to develop for NFT communities. It is a feature that allows NFTs to import short trigger codes or long packets of information directly into NFTs, dynamically communicate this data and perform certain operations as a result of this communication.
+This network is created for developers who want to develop for NFT communities. It is a feature that allows direct import of short trigger codes or long information packets into NFTs, enabling these data to dynamically communicate and perform certain operations as a result of this communication.
 
 How does it work?
-Let's imagine that a network connection is built between a collection of NFTs for the Internet of NFTs. At this point, the owner of the collection must obtain the consent of the other members.
+At the point where a network connection is built between NFT collections for Internet of NFT, there is an infrastructure that allows the initiation or updating of the steps of a protocol for the values hidden within NFTs. These triggering processes occur with trigger codes embedded in images or in information packets containing those values.
+
+For example, consider a scenario where a developer builds a smart contract that only includes certain collection members. At this point, the created smart contract can access the necessary transaction information by opening the information packets within the images and initiate the steps of the relevant parameters based on these parameters. This network connection allows members of a collection to use their NFTs for functions such as identification, authentication, or approval card within the collection. As the number of developers in the system increases, the areas of use will also develop in parallel.
 
  
 
