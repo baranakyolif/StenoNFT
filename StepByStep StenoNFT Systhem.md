@@ -143,11 +143,10 @@ Encryption also takes place through this algorithm. The ASCII combinations resul
                 string bits = bitler;
 
 
+ 
 
-                // Kullanıcıdan bitleri al
 
-
-                string tableFilePath = abc; //tablotu textboxtan al
+                string tableFilePath = abc;  
                 Dictionary<string, Dictionary<string, string>> dictionary = new Dictionary<string, Dictionary<string, string>>();
 
                 LoadHuffmanTable(tableFilePath, dictionary);
@@ -892,7 +891,9 @@ Encryption also takes place through this algorithm. The ASCII combinations resul
 
 
 STEP 2:
-By matching the numeric RGB values of an image with the numeric equivalents of ASCII symbols, the data is embedded into the image. Below is a very simple stenography algorithm that we quickly wrote in c# to illustrate our idea.
+When the keys obtained from this compression process are delivered to the users, the 8 to 21 bit ASCII representations and the number of cycles are embedded into the image with the following stenography method.
+
+This process maps the numeric RGB values of an image to the numeric equivalents of the ASCII symbols, embedding the data into the image. Below is a very simple shorthand algorithm that we quickly wrote in c# to demonstrate our idea.
 
   
         using System.Drawing.Imaging;
@@ -1024,6 +1025,15 @@ By matching the numeric RGB values of an image with the numeric equivalents of A
 
 In the first stage, we used a very simple stenographic processing algorithm, where the blue color is selected in the RGB values and the values are replaced with ASCII values starting from the end. Instead of this algorithm, we could have performed stenography on the values with the lowest pixels for any color, or we could have used a password that we received from the user to select which pixels to select. However, we decided to keep this part quite simple in the first version and concentrate all our weight on repetitive hunffman combinations. In our roadmap, we aim to complicate stenographic operations in STENONFT version 1.1, which is the first update we will receive after launch.
 
+
+Upon completion, the metadata, including the representations, is sent to the blockchain, and the reversal process takes place through a smart contract with blockchain confirmation again. Once the data sent to the blockchain is recorded on the chain, the image is added to the Internet of NFT network.
+
+INTERNET OF NFT NETWORK
+
+This is a network for developers who want to develop for NFT communities. It is a feature that allows NFTs to import short trigger codes or long packets of information directly into NFTs, dynamically communicate this data and perform certain operations as a result of this communication.
+
+How does it work?
+Let's imagine that a network connection is built between a collection of NFTs for the Internet of NFTs. At this point, the owner of the collection must obtain the consent of the other members.
 
  
 
