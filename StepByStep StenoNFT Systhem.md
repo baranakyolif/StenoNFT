@@ -5,7 +5,7 @@ This project is not an NFT project. The main purpose of the project is to create
 Objectives:  The main goal of StenoNFT AI is to enable images to communicate in a decentralized way by hiding and retrieving data in pixels (data packets such as classic text or program trigger codes, etc.). This system extends the use of NFTs, allowing users to develop new applications on the system. For example, data security and monitoring, automatic triggering and contract execution, tokenization and licensing, data verification and identity management, distributed transaction optimization, alternative blockchain communication module. In this way, the goal of the project is to expand the use of NFTs to perform community activities in a unique way and use NFTs more effectively in different fields.
 
 
-How the StenoNFT system works? (Algorithm and Codes)
+How the StenoNFT system works? (Algorithm and Codes) 
 
 Work Phases
 1 - Apply compression and encryption on the uploaded data packet 
