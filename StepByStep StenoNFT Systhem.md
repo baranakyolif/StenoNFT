@@ -1,6 +1,6 @@
 # StenoNFT
 This project is not an NFT project. The main purpose of the project is to create a chain of protocols for transforming the form of digital data and adding different data into it. The launch is based on NFTs because they are the most suitable case for the initial stage. However, our roadmap is designed with a mission to reach a technology called StenoSimulation. The logic of the algorithms and the codes provided below represent the first version of the data processing concept through NFTs.
-
+ 
 
 Objectives:  The main goal of StenoNFT AI is to enable images to communicate in a decentralized way by hiding and retrieving data in pixels (data packets such as classic text or program trigger codes, etc.). This system extends the use of NFTs, allowing users to develop new applications on the system. For example, data security and monitoring, automatic triggering and contract execution, tokenization and licensing, data verification and identity management, distributed transaction optimization, alternative blockchain communication module. In this way, the goal of the project is to expand the use of NFTs to perform community activities in a unique way and use NFTs more effectively in different fields.
 
