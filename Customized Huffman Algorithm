@@ -1,0 +1,845 @@
+using System;
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+    using System.Text;
+    using System.IO;
+    namespace bitzipver1
+    {
+class zipclass
+{
+
+    private static string encodedText;
+    static Dictionary<string, char> symbolDictionary;
+    public string BitString { get; private set; }
+    private static string input;
+    private static string bit7input;
+    private static string sozlukinput;
+
+
+    
+    public static string hunffmanrun(string input)
+    {
+        Dictionary<char, int> frequencies = CalculateFrequencies(input);
+        HuffmanNode huffmanTree = BuildHuffmanTree(frequencies);
+        Dictionary<char, string> huffmanCodes = GenerateHuffmanCodes(huffmanTree);
+        string encodedText = EncodeText(input, huffmanCodes);
+
+        string filepath = @"C:\Enter the path to save the table";
+        zipclass zip = new zipclass();
+        zip.SaveHuffmanTable(huffmanCodes, filepath);
+
+        //string decodedText = DecodeText(encodedText, huffmanTree);
+        //Console.WriteLine("Çözülmüş hali:");
+        //Console.WriteLine(decodedText);
+
+
+        //SaveEncodedText(encodedText, "encodedText.bin");
+
+
+
+        // Bit sayacı
+        string bits = encodedText;
+        zipclass zipClass = new zipclass();  
+        zipClass.ProcessBits(bits);  
+        Console.WriteLine(bits);
+
+
+        
+        CreateSymbolDictionary();
+        string bits2 = bits;
+        string yenismbol = ConvertBitsToSymbols(bits2);
+        Console.ForegroundColor = ConsoleColor.Green;
+
+
+        Console.WriteLine(yenismbol);
+
+        return yenismbol;
+    }
+  
+
+
+
+
+    public static void tersineloop(string deinput, int loopCount, string abc, string cde)
+    {
+        ConvertSembolToSozluk(); 
+
+
+
+        string bitler = "";
+
+        for (int i = 0, ix = loopCount; i < loopCount && ix >= 1; i++, ix--)
+        {
+            string decodeInput = deinput;
+            string bitlers = ConvertSembollerToBitler(decodeInput);  
+
+
+            bitler = bitlers;
+
+        
+
+
+            string[] satirlar = File.ReadAllLines(cde);
+            Array.Reverse(satirlar);  
+
+            string satir = satirlar[i];
+
+            if (satir.EndsWith("-"))
+            {
+                Console.WriteLine("Satırda '-' karakteri bulundu. İşlem atlandı.");
+                bitler += "";
+            }
+
+            bitler += satir;  
+
+
+
+
+
+            string bits = bitler;
+
+
+
+
+
+            string tableFilePath = abc;  
+            Dictionary<string, Dictionary<string, string>> dictionary = new Dictionary<string, Dictionary<string, string>>();
+
+            LoadHuffmanTable(tableFilePath, dictionary);
+
+            string groupName = "TextGroup" + ix.ToString();
+            Dictionary<string, string> TextGroup = dictionary[groupName];
+            dictionary.Clear();
+
+        
+            dictionary["TextGroup" + (ix + 1).ToString()] = TextGroup;
+
+        
+            Console.WriteLine("Döngü {0} için text group: {1}", ix, groupName);
+            string cozulmusbits = "";
+
+            while (!string.IsNullOrEmpty(bits))
+            {
+                bool sembolBulundu = false;
+
+                foreach (KeyValuePair<string, string> kvp in TextGroup)
+                {
+                    string sembol = kvp.Key;
+                    string bitDegeri = kvp.Value;
+
+                    if (bits.StartsWith(bitDegeri))
+                    {
+           
+                        bits = bits.Substring(bitDegeri.Length);
+
+                       
+                        cozulmusbits += sembol;
+                        sembolBulundu = true;
+                        break;
+                    }
+
+                }
+
+                if (!sembolBulundu)
+                {
+                    Console.WriteLine("Hata: bir terslik var.");
+                    break;
+                }
+
+            }
+
+
+            Console.WriteLine("Tüm sembollerin çözülmüş bitleri:" + cozulmusbits);
+
+
+
+
+
+
+            deinput = cozulmusbits; 
+             
+
+            if (i == loopCount - 1) 
+            {
+                string dosyaYolu = @"C:\ Enter the path ";  
+                using (StreamWriter sw = new StreamWriter(dosyaYolu))
+                {
+                    sw.WriteLine(cozulmusbits);  
+                }
+            }
+
+        }
+
+    }
+
+
+
+
+    //HUNFMAN  
+    static Dictionary<char, int> CalculateFrequencies(string text)
+    {
+        Dictionary<char, int> frequencies = new Dictionary<char, int>();
+        foreach (char c in text)
+        {
+            if (frequencies.ContainsKey(c))
+                frequencies[c]++;
+            else
+                frequencies[c] = 1;
+        }
+        return frequencies;
+    }
+    static HuffmanNode BuildHuffmanTree(Dictionary<char, int> frequencies)
+    {
+        PriorityQueue<HuffmanNode, int> priorityQueue = new PriorityQueue<HuffmanNode, int>();
+        foreach (var pair in frequencies)
+        {
+            priorityQueue.Enqueue(new HuffmanNode { Symbol = pair.Key, Frequency = pair.Value }, pair.Value);
+        }
+
+        while (priorityQueue.Count > 1)
+        {
+            HuffmanNode leftChild = priorityQueue.Dequeue();
+            HuffmanNode rightChild = priorityQueue.Dequeue();
+
+            HuffmanNode parentNode = new HuffmanNode
+            {
+                Symbol = '\0',
+                Frequency = leftChild.Frequency + rightChild.Frequency,
+                Left = leftChild,
+                Right = rightChild
+            };
+
+            priorityQueue.Enqueue(parentNode, parentNode.Frequency);
+        }
+
+        return priorityQueue.Dequeue();
+    }
+    static void GenerateHuffmanCodesRecursive(HuffmanNode node, string code, Dictionary<char, string> codes)
+    {
+        if (node.Left == null && node.Right == null)
+        {
+            codes[node.Symbol] = code;
+            return;
+        }
+
+        GenerateHuffmanCodesRecursive(node.Left, code + "0", codes);
+        GenerateHuffmanCodesRecursive(node.Right, code + "1", codes);
+    }
+    static Dictionary<char, string> GenerateHuffmanCodes(HuffmanNode rootNode)
+    {
+        Dictionary<char, string> codes = new Dictionary<char, string>();
+        GenerateHuffmanCodesRecursive(rootNode, "", codes);
+        return codes;
+    }
+    static string EncodeText(string text, Dictionary<char, string> codes)
+    {
+        StringBuilder encodedText = new StringBuilder();
+        foreach (char c in text)
+        {
+            encodedText.Append(codes[c]);
+        }
+        return encodedText.ToString();
+    }
+    static string DecodeText(string bits, Dictionary<string, string> huffmanCodes)
+    {
+        string decodedText = "";
+        string currentBit = "";
+
+        foreach (char bit in bits)
+        {
+            currentBit += bit;
+
+            // Huffman kodlaması sözlüğünde eşleşme varsa sembole dönüştür
+            foreach (KeyValuePair<string, string> kvp in huffmanCodes)
+            {
+                if (kvp.Value == currentBit)
+                {
+                    decodedText += kvp.Key;
+                    currentBit = ""; // Bitleri sıfırla
+                    break;
+                }
+            }
+        }
+
+        return decodedText;
+    }
+
+
+
+
+    // Tabloyu dosyaya kaydet
+
+    static int textGroupCounter = 1; // Counter for text groups
+
+    void SaveHuffmanTable(Dictionary<char, string> huffmanCodes, string filePath)
+    {
+
+        using (StreamWriter writer = new StreamWriter(filePath, true))
+        {
+            writer.WriteLine("TextGroup" + textGroupCounter); // Add the text group with counter
+            textGroupCounter++; // Increment the counter for the next text group
+            foreach (var kvp in huffmanCodes)
+            {
+                writer.WriteLine(kvp.Key + "π" + kvp.Value);
+
+            }
+
+        }
+    }
+
+    static void LoadHuffmanTable(string filePath, Dictionary<string, Dictionary<string, string>> dictionary)
+    {
+        string[] lines = File.ReadAllLines(filePath);
+        string currentGroup = string.Empty;
+
+        foreach (string line in lines)
+        {
+            if (line.StartsWith("TextGroup"))
+            {
+                currentGroup = line.Trim();
+                dictionary[currentGroup] = new Dictionary<string, string>();
+
+            }
+            else if (!string.IsNullOrWhiteSpace(line))
+            {
+                string[] parts = line.Split('π');
+                string key = parts[0].Trim();
+                string value = parts[1].Trim();
+                dictionary[currentGroup][key] = value;
+            }
+
+        }
+    }
+
+
+
+
+
+
+    public static void SaveEncodedText(string encodedText, string filePath)
+    {
+        File.WriteAllText(filePath, encodedText);
+    }
+
+    public static string LoadEncodedText(string filePath)
+    {
+        return File.ReadAllText(filePath);
+    }
+
+    public class HuffmanNode
+    {
+        public char Symbol { get; set; }
+        public int Frequency { get; set; }
+        public HuffmanNode Left { get; set; }
+        public HuffmanNode Right { get; set; }
+    }
+
+    public static List<string> ListTextGroups(string filePath)
+    {
+        List<string> textGroups = new List<string>();
+
+        if (File.Exists(filePath))
+        {
+            using (StreamReader reader = new StreamReader(filePath))
+            {
+                string line;
+                StringBuilder textGroup = new StringBuilder();
+                while ((line = reader.ReadLine()) != null)
+                {
+                    if (!string.IsNullOrWhiteSpace(line))
+                    {
+                        textGroup.AppendLine(line);
+                    }
+                    else if (textGroup.Length > 0)
+                    {
+                        textGroups.Add(textGroup.ToString().Trim());
+                        textGroup.Clear();
+                    }
+                }
+
+                // Check if there is any remaining text group
+                if (textGroup.Length > 0)
+                {
+                    textGroups.Add(textGroup.ToString().Trim());
+                }
+            }
+        }
+        else
+        {
+            Console.WriteLine("Dosya bulunamadı: " + filePath);
+        }
+
+        return textGroups;
+    }
+
+
+    public void ProcessBits(string bits)
+    {
+        string outputPath = @"C:\ Enter the path output.txt";
+
+        using (StreamWriter writer = new StreamWriter(outputPath, append: true))
+        {
+            int bitCount = 0; // Bit sayacı
+            string output = ""; // Çıktı metni
+            string bit2 = ""; // bit2 değişkeni
+
+            for (int i = 0; i < bits.Length; i++)
+            {
+                output += bits[i];
+                bit2 += bits[i];
+                bitCount++;
+
+                if (bitCount == 7)
+                {
+                    if (bitCount >= 1 && bitCount <= 6)
+                    {
+                        writer.WriteLine(output); // 7 bitin altındaki değerleri output.txt'ye yazdır
+                    }
+                    output = "";
+                    bitCount = 0;
+                }
+            }
+
+            if (bitCount >= 1 && bitCount <= 6)
+            {
+                writer.WriteLine(output); // 7 bitin altındaki değerleri output.txt'ye yazdır
+            }
+            else if (output == "")
+            {
+                writer.WriteLine("-"); // Boş döngüler için '2'yi output.txt'ye yazdır
+            }
+
+
+            int similarity = GetSimilarity(output, bit2); // Benzerlik oranını hesapla
+
+            if (similarity > 0)
+            {
+                output = output.Substring(0, output.Length - similarity); // Benzer karakterleri sondan sil
+                bit2 = bit2.Substring(0, bit2.Length - similarity); // Bit2'yi güncelle
+
+
+            }
+        }
+    }
+
+    private int GetSimilarity(string str1, string str2)
+    {
+        int similarity = 0;
+        int length = Math.Min(str1.Length, str2.Length);
+
+        for (int i = 1; i <= length; i++)
+        {
+            if (str1[^i] == str2[^i])
+            {
+                similarity++;
+            }
+            else
+            {
+                break;
+            }
+        }
+
+        return similarity;
+    }
+
+
+
+    //bits2'yi (yani sayaçtan geçen inputu) ascıı yapma     
+    static string ConvertBitsToSymbols(string bits2)
+    {
+        string yenisembol = string.Empty;
+        int startIndex = 0;
+
+        while (startIndex < bits2.Length)
+        {
+            int symbolLength = Math.Min(7, bits2.Length - startIndex);
+            string currentSymbol = bits2.Substring(startIndex, symbolLength);
+
+            if (symbolDictionary.ContainsKey(currentSymbol))
+            {
+                char symbol = symbolDictionary[currentSymbol];
+
+                yenisembol += symbol;
+            }
+            else
+            {
+                // Geçersiz sembol, hata durumu veya özel işleme geçilebilir
+                yenisembol += "";
+
+            }
+
+            startIndex += symbolLength;
+        }
+
+        return yenisembol;
+
+
+    }
+
+    //sözlük
+    static void CreateSymbolDictionary()
+    {
+        symbolDictionary = new Dictionary<string, char>
+    {
+        { "0000000", 'Σ' },
+        { "0000001", '!' },
+        { "0000010", '"' },
+        { "0000011", '#' },
+        { "0000100", '$' },
+        { "0000101", '%' },
+        { "0000110", '&' },
+        { "0000111", '\'' },
+        { "0001000", '(' },
+        { "0001001", ')' },
+        { "0001010", '*' },
+        { "0001011", '+' },
+        { "0001100", ',' },
+        { "0001101", '-' },
+        { "0001110", '.' },
+        { "0001111", '/' },
+        { "0010000", '0' },
+        { "0010001", '1' },
+        { "0010010", '2' },
+        { "0010011", '3' },
+        { "0010100", '4' },
+        { "0010101", '5' },
+        { "0010110", '6' },
+        { "0010111", '7' },
+        { "0011000", '8' },
+        { "0011001", '9' },
+        { "0011010", ':' },
+        { "0011011", ';' },
+        { "0011100", '<' },
+        { "0011101", '=' },
+        { "0011110", '>' },
+        { "0011111", '?' },
+        { "0100000", '@' },
+        { "0100001", 'A' },
+        { "0100010", 'B' },
+        { "0100011", 'C' },
+        { "0100100", 'D' },
+        { "0100101", 'E' },
+        { "0100110", 'F' },
+        { "0100111", 'G' },
+        { "0101000", 'H' },
+        { "0101001", 'I' },
+        { "0101010", 'J' },
+        { "0101011", 'K' },
+        { "0101100", 'L' },
+        { "0101101", 'M' },
+        { "0101110", 'N' },
+        { "0101111", 'O' },
+        { "0110000", 'P' },
+        { "0110001", 'Q' },
+        { "0110010", 'R' },
+        { "0110011", 'S' },
+        { "0110100", 'T' },
+        { "0110101", 'U' },
+        { "0110110", 'V' },
+        { "0110111", 'W' },
+        { "0111000", 'X' },
+        { "0111001", 'Y' },
+        { "0111010", 'Z' },
+        { "0111011", '[' },
+        { "0111100", '\\' },
+        { "0111101", ']' },
+        { "0111110", '^' },
+        { "0111111", '_' },
+        { "1000000", '`' },
+        { "1000001", 'a' },
+        { "1000010", 'b' },
+        { "1000011", 'c' },
+        { "1000100", 'd' },
+        { "1000101", 'e' },
+        { "1000110", 'f' },
+        { "1000111", 'g' },
+        { "1001000", 'h' },
+        { "1001001", 'i' },
+        { "1001010", 'j' },
+        { "1001011", 'k' },
+        { "1001100", 'l' },
+        { "1001101", 'm' },
+        { "1001110", 'n' },
+        { "1001111", 'o' },
+        { "1010000", 'p' },
+        { "1010001", 'q' },
+        { "1010010", 'r' },
+        { "1010011", 's' },
+        { "1010100", 't' },
+        { "1010101", 'u' },
+        { "1010110", 'v' },
+        { "1010111", 'w' },
+        { "1011000", 'x' },
+        { "1011001", 'y' },
+        { "1011010", 'z' },
+        { "1011011", '{' },
+        { "1011100", '|' },
+        { "1011101", '}' },
+        { "1011110", '~' },
+        { "1011111", 'Ç' },
+        { "1100000", 'ü' },
+        { "1100001", 'é' },
+        { "1100010", 'â' },
+        { "1100011", 'ä' },
+        { "1100100", 'à' },
+        { "1100101", 'å' },
+        { "1100110", 'ç' },
+        { "1100111", 'ê' },
+        { "1101000", 'ë' },
+        { "1101001", 'è' },
+        { "1101010", 'ï' },
+        { "1101011", 'î' },
+        { "1101100", 'ì' },
+        { "1101101", 'Ä' },
+        { "1101110", 'Å' },
+        { "1101111", 'É' },
+        { "1110000", 'æ' },
+        { "1110001", 'Æ' },
+        { "1110010", 'ô' },
+        { "1110011", 'ö' },
+        { "1110100", 'ò' },
+        { "1110101", 'û' },
+        { "1110110", 'ù' },
+        { "1110111", 'ÿ' },
+        { "1111000", 'Ö' },
+        { "1111001", 'Ü' },
+        { "1111010", 'ø' },
+        { "1111011", '£' },
+        { "1111100", 'Ø' },
+        { "1111101", '×' },
+        { "1111110", 'ƒ' },
+        { "1111111", 'á' }
+        };
+
+
+    }
+
+
+
+    // VERİYİ GERİ DÖNÜŞTÜRME
+
+    //DecodeSözlük
+    static Dictionary<char, string> sembolSozlugu; // Sembol sözlüğünün ismini sembolSozlugu olarak değiştirdik
+
+    static void ConvertSembolToSozluk()
+    {
+        sembolSozlugu = new Dictionary<char, string>
+{
+
+        { 'Σ', "0000000" },
+        { '!', "0000001" },
+        { '"', "0000010" },
+        { '#', "0000011" },
+        { '$', "0000100" },
+        { '%', "0000101" },
+        { '&', "0000110" },
+        { '\'', "0000111" },
+        { '(', "0001000" },
+        { ')', "0001001" },
+        { '*', "0001010" },
+        { '+', "0001011" },
+        { ',', "0001100" },
+        { '-', "0001101" },
+        { '.', "0001110" },
+        { '/', "0001111" },
+        { '0', "0010000" },
+        { '1', "0010001" },
+        { '2', "0010010" },
+        { '3', "0010011" },
+        { '4', "0010100" },
+        { '5', "0010101" },
+        { '6', "0010110" },
+        { '7', "0010111" },
+        { '8', "0011000" },
+        { '9', "0011001" },
+        { ':', "0011010" },
+        { ';', "0011011" },
+        { '<', "0011100" },
+        { '=', "0011101" },
+        { '>', "0011110" },
+        { '?', "0011111" },
+        { '@', "0100000" },
+        { 'A', "0100001" },
+        { 'B', "0100010" },
+        { 'C', "0100011" },
+        { 'D', "0100100" },
+        { 'E', "0100101" },
+        { 'F', "0100110" },
+        { 'G', "0100111" },
+        { 'H', "0101000" },
+        { 'I', "0101001" },
+        { 'J', "0101010" },
+        { 'K', "0101011" },
+        { 'L', "0101100" },
+        { 'M', "0101101" },
+        { 'N', "0101110" },
+        { 'O', "0101111" },
+        { 'P', "0110000" },
+        { 'Q', "0110001" },
+        { 'R', "0110010" },
+        { 'S', "0110011" },
+        { 'T', "0110100" },
+        { 'U', "0110101" },
+        { 'V', "0110110" },
+        { 'W', "0110111" },
+        { 'X', "0111000" },
+        { 'Y', "0111001" },
+        { 'Z', "0111010" },
+        { '[', "0111011" },
+        { '\\', "0111100" },
+        { ']', "0111101" },
+        { '^', "0111110" },
+        { '_', "0111111" },
+        { '`', "1000000" },
+        { 'a', "1000001" },
+        { 'b', "1000010" },
+        { 'c', "1000011" },
+        { 'd', "1000100" },
+        { 'e', "1000101" },
+        { 'f', "1000110" },
+        { 'g', "1000111" },
+        { 'h', "1001000" },
+        { 'i', "1001001" },
+        { 'j', "1001010" },
+        { 'k', "1001011" },
+        { 'l', "1001100" },
+        { 'm', "1001101" },
+        { 'n', "1001110" },
+        { 'o', "1001111" },
+        { 'p', "1010000" },
+        { 'q', "1010001" },
+        { 'r', "1010010" },
+        { 's', "1010011" },
+        { 't', "1010100" },
+        { 'u', "1010101" },
+        { 'v', "1010110" },
+        { 'w', "1010111" },
+        { 'x', "1011000" },
+        { 'y', "1011001" },
+        { 'z', "1011010" },
+        { '{', "1011011" },
+        { '|', "1011100" },
+        { '}', "1011101" },
+        { '~', "1011110" },
+        { 'Ç', "1011111" },
+        { 'ü', "1100000" },
+        { 'é', "1100001" },
+        { 'â', "1100010" },
+        { 'ä', "1100011" },
+        { 'à', "1100100" },
+        { 'å', "1100101" },
+        { 'ç', "1100110" },
+        { 'ê', "1100111" },
+        { 'ë', "1101000" },
+        { 'è', "1101001" },
+        { 'ï', "1101010" },
+        { 'î', "1101011" },
+        { 'ì', "1101100" },
+        { 'Ä', "1101101" },
+        { 'Å', "1101110" },
+        { 'É', "1101111" },
+        { 'æ', "1110000" },
+        { 'Æ', "1110001" },
+        { 'ô', "1110010" },
+        { 'ö', "1110011" },
+        { 'ò', "1110100" },
+        { 'û', "1110101" },
+        { 'ù', "1110110" },
+        { 'ÿ', "1110111" },
+        { 'Ö', "1111000" },
+        { 'Ü', "1111001" },
+        { 'ø', "1111010" },
+        { '£', "1111011" },
+        { 'Ø', "1111100" },
+        { '×', "1111101" },
+        { 'ƒ', "1111110" },
+        { 'á', "1111111" }
+    };
+
+
+
+
+
+    }
+
+
+    static string ConvertSembollerToBitler(string decodeInput)
+    {
+        StringBuilder bitler = new StringBuilder();
+
+        foreach (char sembol in decodeInput)
+        {
+            if (sembolSozlugu.ContainsKey(sembol))
+            {
+                string bit = sembolSozlugu[sembol];
+                bitler.Append(bit);
+            }
+            else
+            {
+                // Geçersiz sembol, hata durumu veya özel işleme için yapılacaklar
+                // bitler.Append("");
+            }
+        }
+
+        return bitler.ToString();
+    }
+
+    static string ConvertBitlerToSemboller(string bitler)
+    {
+        StringBuilder semboller = new StringBuilder();
+
+        // Bitleri sembollere dönüştür
+        for (int i = 0; i < bitler.Length; i += 7)
+        {
+            string bit = bitler.Substring(i, 7);
+            char sembol = FindSembolByBit(bit);
+            semboller.Append(sembol);
+        }
+
+        return semboller.ToString();
+    }
+
+    static char FindSembolByBit(string bit)
+    {
+        foreach (var kvp in sembolSozlugu)
+        {
+            if (kvp.Value == bit)
+            {
+                return kvp.Key;
+            }
+        }
+
+        // Geçersiz bit, hata durumu veya özel işleme için yapılacaklar
+        return ' ';
+    }
+
+
+    //dış girdi alma
+    static void AppendInputToBitler(string filePath, int loopCount, ref string bitler)
+    {
+        string[] lines = File.ReadAllLines(filePath);
+        int lineIndex = 0;
+
+        for (int i = 0; i < loopCount; i++)
+        {
+            if (lineIndex >= lines.Length)
+                break;
+
+            string line = lines[lineIndex];
+
+            if (line.Contains("-"))
+            {
+                lineIndex++; // Satırda "-" varsa bir sonraki satıra geç
+                continue;
+            }
+
+            bitler += line;
+            lineIndex++;
+        }
+    }
+
+
+
+}
+}
