@@ -1046,7 +1046,9 @@ Blockchain Transaction and Smart Contract Initialization: In the fifth and final
 
 This process plan provides a framework for associating embedded textual data with images and enabling their integration with smart contracts on the blockchain. This scheme can be used for trusted authentication and data integrity. Or it could be designed to synchronize the stages of a game as users play it. 
 
+A SAMPLE USE CASE FOR THE INTERNET OF NFT - ARTIFICIAL INTELLIGENCE MODEL TRAINING
 
+This component covers the process of collecting images for visual artificial intelligence research using internet of nft and processing the labels into pixels of the image with shorthand. Users send STENO-images to a blockchain registered storage with the url address solana to create a custom model. Each image has tags embedded in its pixels. Through a parser, the tags of all the collected private images and the image itself are converted into a dataset for processing. Thus, a systematic dataset creation phase for the artificial intelligence model is realized.
 
 
 
