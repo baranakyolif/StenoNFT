@@ -1025,3 +1025,28 @@ This network is created for developers who want to develop for NFT communities. 
 How does it work? At the point where a network connection is built between NFT collections for Internet of NFT, there is an infrastructure that allows the initiation or updating of the steps of a protocol for the values hidden within NFTs. These triggering processes occur with trigger codes embedded in images or in information packets containing those values.
 
 For example, consider a scenario where a developer builds a smart contract that only includes certain collection members. At this point, the created smart contract can access the necessary transaction information by opening the information packets within the images and initiate the steps of the relevant parameters based on these parameters. This network connection allows members of a collection to use their NFTs for functions such as identification, authentication, or approval card within the collection. As the number of developers in the system increases, the areas of use will also develop in parallel.
+
+INTETERNET OF NFT ARCHITECTURE
+The Internet of NFT is a network structure in which textual data embedded in images that are minted as NFT can communicate with each other. The way this network structure works is as follows:
+
+
+Textual Data Embedding Phase: First, a shorthand algorithm will be used to generate the embedded textual data. This algorithm will secretly embed textual data into a given image by modifying its pixels or adjusting its color values. This process will ensure that the data is too small to be detected by the human eye.
+
+Embedded text can be compressed code to reveal identity and confirmation information for a transaction, or it can be groups of text generated for more specific operations. Or textual data may be embedded directly into the pixels without any compression.
+
+Let's continue with a scenario where the images of members of an NFT collection are assigned identities and users are allowed to vote according to their status. 
+
+Text Decoding and Identification: In the second step, the embedded textual data will be decoded from the image and the original text will be obtained. This can take place between the NFTs of the respective users, or it can be used simultaneously for all community members. This text will contain a unique ID token for each image. This ID token will be associated with smart contracts on the blockchain. 
+
+Smart Contract Creation and Association: In the third phase, smart contracts should be created on the blockchain based on the ID token for each image, and these contracts should be identified and associated to the users. These smart contracts will be programmed to perform certain actions based on the textual data embedded in the images.
+
+Key Confirmation and Request Submission: In the fourth step, the keys required to perform certain actions will need to be confirmed. In a network designed for users to vote, users will have 2 keys and a compressed code to embed their identity data into their images. These keys are the confirmation prompt. The approved keys will be used to send a request to the blockchain. 
+
+Blockchain Transaction and Smart Contract Initialization: In the fifth and final step, the blockchain will validate the incoming request and initialize the smart contract. This transaction will be recorded as a specific transaction in the blockchain and the smart contract will be allowed to perform the specified action.
+
+This process plan provides a framework for associating embedded textual data with images and enabling their integration with smart contracts on the blockchain. This scheme can be used for trusted authentication and data integrity. Or it could be designed to synchronize the stages of a game as users play it. 
+
+
+
+
+
