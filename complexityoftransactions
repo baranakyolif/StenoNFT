@@ -1,7 +1,5 @@
-#This step focuses on a small architecture for selecting the most appropriate pixels without
-#compromising the integrity of an image file. This architecture is based on the propagation
-#steps of a protist known in biology as Physarum polycephalum, combined with Dijkstra's algorithm,
-#and aims to preserve the integrity of the image file for shorthand processing.
+
+#A small architecture has been added to our project to select the optimal pixels without compromising the integrity of an image file.  This architecture is based on the algorithmic description of the propagation steps of a protista known in biology as Physarum polycephalum and the addition of this algorithm to Dijkstra's algorithm. These algorithms are optimization architecture designed to select the most suitable pixels for textual data to be hidden in an image.
 
 
 
