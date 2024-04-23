@@ -5,7 +5,7 @@ Code: https://github.com/baranakyolif/StenoNFT/blob/main/complexityoftransaction
 
 CODE OUTPUT: 
 
-The places marked in red in the picture are where a total of 4000 ASCII characters (about 1 word page) are hidden. 
+The places represented in red in the image are where a total of 4000 ASCII characters (about 1 word page) are hidden. (The red color is only used to show where the data is hidden in the image. The system chooses the most appropriate colors for the image and makes it unknown where the data is hidden).
 
 ![image](https://github.com/baranakyolif/StenoNFT/assets/165828667/bd55f90b-57e0-452d-ad78-c37c50354baa)
 
