@@ -43,7 +43,7 @@ In this system the anatars are delivered to the users. The 7 to 21 bit represent
 
 Encryption also takes place through this algorithm. The ASCII combinations resulting from each compression process can be converted into a password value based on a value assigned to the user. From the last two digits of the value randomly assigned to the user, the first and last values of the number of cycles corresponding to that value can be used as a password.
 
-Below we have created a preview running as a c# console application so you can test the algorithm
+Below we have created a preview running as a c# console application so you can test the algorithm (C# VERSION)
 
     using System;
     using System;
@@ -895,6 +895,10 @@ Below we have created a preview running as a c# console application so you can t
 STEP 2: When the keys obtained from this compression process are delivered to the users, the 8 to 21 bit ASCII representations and the number of cycles are embedded into the image with the following stenography method.
 
 This process maps the numeric RGB values of an image to the numeric equivalents of the ASCII symbols, embedding the data into the image. Below is a very simple shorthand algorithm that we quickly wrote in c# to demonstrate our idea.
+
+(PYTHON VERSİON: https://github.com/baranakyolif/StenoNFT/blob/main/simplestenographypy)
+
+C# VERSİON:
 
     using System.Drawing.Imaging;
     namespace WinFormsApp1
