@@ -3,6 +3,13 @@ A small architecture has been added to our project to select the optimal pixels 
 
 Code: https://github.com/baranakyolif/StenoNFT/blob/main/complexityoftransactions
 
+CODE OUTPUT: 
+
+The places marked in red in the picture are where a total of 4000 ASCII characters (about 1 word page) are hidden. 
+
+![image](https://github.com/baranakyolif/StenoNFT/assets/165828667/bd55f90b-57e0-452d-ad78-c37c50354baa)
+
+
 Introduction
 
 What is the StenoNFT?
