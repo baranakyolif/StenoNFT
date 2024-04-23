@@ -1,3 +1,7 @@
+Update: (23.04.2024)
+A small architecture has been added to our project to select the optimal pixels without compromising the integrity of an image file.  This architecture is based on the propagation steps of a protista known in biology as Physarum polycephalum and Dijkstra's algorithm and aims to preserve the integrity of the image file for short processing.
+
+
 StenoNFT
 This project is not an NFT project. The main purpose of the project is to create a chain of protocols for transforming the form of digital data and adding different data into it. The launch is based on NFTs because they are the most suitable case for the initial stage. However, our roadmap is designed with a mission to reach a technology called StenoSimulation. The logic of the algorithms and the codes provided below represent the first version of the data processing concept through NFTs.
 
