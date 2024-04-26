@@ -1,0 +1,733 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Alata&family=Bebas+Neue&family=Goldman:wght@400;700&family=Montserrat+Subrayada:wght@400;700&family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Rubik+Lines&family=Silkscreen:wght@400;700&display=swap" rel="stylesheet">
+<title>Anasayfa</title>
+<style>
+  body {
+    background-color: #21292C;
+    margin: 0;
+    padding: 0;
+  }
+
+
+  body::-webkit-scrollbar {
+    width: 12px; /* WebKit tabanlı tarayıcılar için */
+}
+
+body::-webkit-scrollbar-thumb {
+    background-color: #212a63; /* Kaydırma çubuğu rengi */
+    border-radius: 10px;
+}
+
+body::-webkit-scrollbar-track {
+    background-color: #101738; /* Kaydırma çubuğu yolu rengi */
+}
+
+  .panel {
+    border: 1px solid #191a1b;
+    font-family: "Noto Sans", sans-serif;
+    font-size: small;
+  
+    background-color: #212529;
+    box-sizing: border-box;
+    height: 100vh; /* Tüm panellerin uzunluğu tam ekran */
+    position: relative; /* Pozisyon ayarlaması için */
+  }
+  .panel:nth-child(1) {
+    width: 100%; /* Genişlik %100 */
+    float: none;
+    display: none; /* Mobil görünümde ilk pane görünmez */
+  }
+  .panel:nth-child(2),
+  .panel:nth-child(3),
+  .panel:nth-child(4) {
+    width: 100%; /* Genişlik %100 */
+    float: none;
+  }
+  @media only screen and (min-width: 601px) {
+    .panel:nth-child(1) {
+      width: 5%; /* Genişlik %5 */
+      float: left;
+      display: block; /* Normal ekran boyutunda görünür */
+    }
+    .panel:nth-child(2) {
+      width: 20%; /* Genişlik %20 */
+      float: left;
+    }
+    .panel:nth-child(3) {
+      width: 25%; /* Genişlik %25 */
+      float: left;
+    }
+    .panel:nth-child(4) {
+      width: 50%; /* Genişlik %50 */
+      float: left;
+    }
+  }
+
+  .mobile-nav {
+    display: none; /* Normal ekranlarda gizle */
+  }
+
+  @media only screen and (max-width: 600px) {
+    .mobile-nav {
+      display: block; /* Mobil ekranlarda göster */
+      position: fixed;
+      top: 10px;
+      left: 10px;
+      z-index: 1000;
+    }
+  }
+
+  .overlay {
+    position: fixed;
+    top: 5;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: none;
+    z-index: 999;
+  }
+
+  .mobile-panel {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #212529;
+    display: none;
+    z-index: 1000;
+    padding: 20px;
+    box-sizing: border-box;
+  }
+
+  .mobile-panel ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  .mobile-panel li {
+    margin-bottom: 10px;
+  }
+
+  .open-panel-btn,
+  .close-panel-btn {
+    background-color: transparent;
+    border: none;
+    color: #000;
+    font-size: 18px;
+    cursor: pointer;
+  }
+
+  .open-panel-btn:focus,
+  .close-panel-btn:focus {
+    outline: none;
+  }
+
+  .logo {
+    position: absolute;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 50px; /* Logo genişliği */
+    height: auto; /* Otomatik yükseklik */
+}
+.alt1 {
+  position: absolute;
+    top: 75px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 25px; /* Logo genişliği */
+    height: auto; /* Otomatik yükseklik */
+}
+.alt2 {
+  position: absolute;
+    top: 130px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 25px; /* Logo genişliği */
+    height: auto; /* Otomatik yükseklik */
+}
+.alt3 {
+  position: absolute;
+    top: 185px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 25px; /* Logo genişliği */
+    height: auto; /* Otomatik yükseklik */
+}
+
+.alt4 {
+  position: absolute;
+    top: 240px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 25px; /* Logo genişliği */
+    height: auto; /* Otomatik yükseklik */
+}
+
+.alt5 {
+  position: absolute;
+    top: 640px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 30px; /* Logo genişliği */
+    height: auto; /* Otomatik yükseklik */
+}
+
+.alt6 {
+  position: absolute;
+    top: 290px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 25px; /* Logo genişliği */
+    height: auto; /* Otomatik yükseklik */
+}
+
+.alt1-2 {
+  position: absolute;
+    top: 75px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 40px; /* Logo genişliği */
+    height: auto; /* Otomatik yükseklik */
+}
+.alt2-2 {
+  position: absolute;
+    top: 130px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px; /* Logo genişliği */
+    height: auto; /* Otomatik yükseklik */
+}
+.alt3-2 {
+  position: absolute;
+    top: 185px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px; /* Logo genişliği */
+    height: auto; /* Otomatik yükseklik */
+}
+
+.alt4-2 {
+  position: absolute;
+    top: 240px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px; /* Logo genişliği */
+    height: auto; /* Otomatik yükseklik */
+}
+
+ 
+
+.alt5-2 {
+  position: absolute;
+    top: 400px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px; /* Logo genişliği */
+    height: auto; /* Otomatik yükseklik */
+}
+
+.inner-panel {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    border-bottom: 2px solid #191a1b; /* Sadece alt çizgi */
+    text-align: center;
+    
+}
+
+
+.baslik {
+    margin-top: 20px;
+    font-weight: bold; 
+    color: #fff;
+    
+}
+
+.inner-panelb:nth-of-type(1) {
+  top: 30px; /* İlk panele göre konumunu ayarlayın */
+  border-bottom: 2px solid #191a1b; /* Sadece alt çizgi */
+}
+
+.inner-panelb:nth-of-type(2) {
+  top: 30px; /* İlk panele göre konumunu ayarlayın */
+  border-bottom: 2px solid #191a1b; /* Sadece alt çizgi */
+}
+
+.inner-panelb:nth-of-type(3) {
+  top: 60px; /* İlk panele göre konumunu ayarlayın */
+  border-bottom: 2px solid #191a1b; /* Sadece alt çizgi */
+}
+
+.inner-panelb:nth-of-type(4) {
+  top: 90px; /* İlk panele göre konumunu ayarlayın */
+  border-bottom: 2px solid #191a1b; /* Sadece alt çizgi */
+}
+
+.inner-panelb:nth-of-type(5) {
+  top: 120px; /* İlk panele göre konumunu ayarlayın */
+  border-bottom: 2px solid #191a1b; /* Sadece alt çizgi */
+}
+
+.inner-panelb:nth-of-type(6) {
+  top: 120px; /* İlk panele göre konumunu ayarlayın */
+  border-bottom: 2px solid #191a1b; /* Sadece alt çizgi */
+}
+.inner-panelb:nth-of-type(7) {
+  top: 120px; /* İlk panele göre konumunu ayarlayın */
+  border-bottom: 2px solid #191a1b; /* Sadece alt çizgi */
+}
+.inner-panelb:nth-of-type(8) {
+  top: 120px; /* İlk panele göre konumunu ayarlayın */
+  border-bottom: 2px solid #191a1b; /* Sadece alt çizgi */
+}
+
+.inner-panelH {
+  top: 120px; /* İlk panele göre konumunu ayarlayın */
+  border-bottom: 2px solid #191a1b; /* Sadece alt çizgi */
+  
+}
+
+.baslikc {
+    margin-top: 20px;
+    font-weight: bold; /* Yazı stilini normal hale getir */
+    color: #fff;
+    text-align: center; /* Yazıyı sola hizala */
+}
+
+
+.baslikb {
+    margin-top: 20px;
+    font-weight: normal; /* Yazı stilini normal hale getir */
+    color: #fff;
+    text-align: left; /* Yazıyı sola hizala */
+    position: relative; /* İkonun pozisyonunu belirlemek için */
+    display: inline-block; /* Metin ve ikonun yanyana olmasını sağlar */
+    vertical-align: middle; /* Metin ve ikonun dikey hizalanmasını sağlar */
+    padding-left: 10px; /* Soldan boşluk bırak */
+}
+
+.baslikb::before {
+    content: url('src/6.png'); /* İkon eklemek için */
+    margin-right: 5px; /* İkon ile metin arasında bir boşluk bırak */
+    vertical-align: middle; /* Metin ve ikonun dikey hizalanmasını sağlar */
+}
+
+.baslike {
+    margin-top: 20px;
+    font-weight: normal; /* Yazı stilini normal hale getir */
+    color: #fff;
+    text-align: left; /* Yazıyı sola hizala */
+    position: relative; /* İkonun pozisyonunu belirlemek için */
+    display: inline-block; /* Metin ve ikonun yanyana olmasını sağlar */
+    vertical-align: middle; /* Metin ve ikonun dikey hizalanmasını sağlar */
+    padding-left: 10px; /* Soldan boşluk bırak */
+}
+
+.baslike::before {
+    content: url('src/9.png'); /* İkon eklemek için */
+    margin-right: 5px; /* İkon ile metin arasında bir boşluk bırak */
+    vertical-align: middle; /* Metin ve ikonun dikey hizalanmasını sağlar */
+}
+
+
+.baslikH {
+    margin-top: 20px;
+    font-weight: normal; /* Yazı stilini normal hale getir */
+    color: #fff;
+    text-align: left; /* Yazıyı sola hizala */
+    position: relative; /* İkonun pozisyonunu belirlemek için */
+    display: inline-block; /* Metin ve ikonun yanyana olmasını sağlar */
+    vertical-align: middle; /* Metin ve ikonun dikey hizalanmasını sağlar */
+    padding-left: 10px; /* Soldan boşluk bırak */
+
+}
+
+.baslikH::before {
+    content: url('src/HELP.png'); /* İkon eklemek için */
+    margin-right: 5px; /* İkon ile metin arasında bir boşluk bırak */
+    vertical-align: middle; /* Metin ve ikonun dikey hizalanmasını sağlar */
+}
+
+.inner-panel2 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    border-bottom: 2px solid #191a1b; /* Sadece alt çizgi */
+    text-align: center;
+    
+}
+
+
+.baslik2 {
+    margin-top: 20px;
+    font-weight: bold; 
+    color: #fff;
+    
+}
+
+
+
+
+.inner-panel3 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    border-bottom: 2px solid #191a1b; /* Sadece alt çizgi */
+    text-align: center;
+    
+}
+.baslik3, .baslik4 {
+    display: inline-block; /* İçeriklerin yan yana gelmesini sağlar */
+    margin-top: 20px;
+    font-weight: bold; 
+    color: #fff;
+}
+ 
+#image-upload,
+ 
+#text-input,
+#encode-button {
+  display: block; /* Her öğenin blok düzeni */
+  margin: 0 auto  ; /* Her öğeyi yatayda ortala ve alt kısımda boşluk bırak */
+ 
+}
+
+#preview {
+  display: block; /* Her öğenin blok düzeni */
+  margin: 20% auto 20%; /* Dikeyde ve yatayda tam ortala */
+}
+
+
+
+#encode-button {
+  margin-bottom: 30px; /* Encode butonu ile metin kutusu arasında biraz daha fazla boşluk bırak */
+}
+
+.encode-panel {
+  position: relative; /* Göreli konumlandırma */
+  margin-top: 70px; /* İçeriğin .inner-panel3'ün altında olması için boşluk bırak */
+  background-color: #131518;
+  padding: 10px;
+  box-sizing: border-box;
+ 
+  border-radius: 5%;
+  width: 80%;
+  margin-left: auto; /* Yatayda ortala */
+  margin-right: auto; /* Yatayda ortala */
+  text-align: center; /* İçerikleri ortala */
+  height: 600px; /* Panelin maksimum yüksekliği */
+  overflow-y: auto; /* Dikey kaydırma çubuğunu otomatik göster */
+}
+
+.encode-panel::-webkit-scrollbar {
+    width: 12px; /* WebKit tabanlı tarayıcılar için */
+}
+
+.encode-panel::-webkit-scrollbar-thumb {
+    background-color: #00000089; /* Kaydırma çubuğu rengi */
+    border-radius: 15px;
+}
+
+.encode-panel::-webkit-scrollbar-track {
+    background-color: #171920; /* Kaydırma çubuğu yolu rengi */
+    border-radius: 15%;
+}
+ 
+
+#image-upload {
+  margin-bottom: 5px; /* Dosya seçme butonu ile resim ön izleme alanı arasında boşluk bırak */
+  background-color: #1c1e21; /* Düğmenin arkaplan rengi */
+  color: white; /* Düğme metni rengi */
+  padding: 10px 20px; /* Düğme iç içe boşluğu */
+  border: none; /* Düğme kenarlığı yok */
+  border-radius: 10px; /* Düğme kenar yumuşatma */
+  cursor: pointer; /* İmleç stilini göster */
+  font-size: 15px; /* Yazı tipi boyutu */
+}
+
+#image-upload::-webkit-file-upload-button {
+  visibility: hidden; /* Tarayıcıya özgü dosya yükleme butonunu gizle */
+}
+
+#image-upload::before {
+  content: 'Upload Image'; /* Buton metni */
+  display: inline-block;
+  background-color: #15171b; /* Düğmenin arkaplan rengi */
+  color: white; /* Düğme metni rengi */
+  padding: 10px 20px; /* Düğme iç içe boşluğu */
+  border: none; /* Düğme kenarlığı yok */
+  border-radius: 5px; /* Düğme kenar yumuşatma */
+  cursor: pointer; /* İmleç stilini göster */
+  font-size: 15px; /* Yazı tipi boyutu */
+}
+
+ 
+
+
+
+
+#text-input {
+  margin-bottom: 10px; /* Metin kutusu ile encode butonu arasında boşluk bırak */
+  background-color: #fff; /* Metin kutusunun arkaplan rengi */
+  width: 80%; /* Metin kutusunun genişliği %100 */
+  padding: 10px; /* Metin kutusunun iç kenar boşluğu */
+  box-sizing: border-box; /* Kutu modelini içeriği dahil et */
+  border: 1px solid #ccc; /* Metin kutusuna sınır ekle */
+  border-radius: 5px; /* Kenar yumuşatma */
+  resize: none; /* Metin kutusunun yeniden boyutlandırılmasını engelle */
+  height: 100px; /* Metin kutusunun varsayılan yüksekliği */
+  max-height: 300px; /* Metin kutusunun maksimum yüksekliği */
+  font-size: 14px; /* Yazı tipi boyutu */
+  line-height: 1.5; /* Satır yüksekliği */
+  word-wrap: break-word; /* Kelimeleri otomatik olarak alt satıra taşı */
+}
+
+#encode-button {
+  margin-bottom: 10px; /* Encode butonu ile metin kutusu arasında boşluk bırak */
+  background-color: #2a2d2f; /* Düğmenin arkaplan rengi */
+  color: white; /* Düğme metni rengi */
+  padding: 15px 20px; /* Düğme iç içe boşluğu */
+  border: none; /* Düğme kenarlığı yok */
+  border-radius: 5px; /* Düğme kenar yumuşatma */
+  cursor: pointer; /* İmleç stilini göster */
+  font-size: 15px; /* Yazı tipi boyutu */
+  width: 80% ;
+  
+}
+
+#encode-button:hover {
+  background-color: #0c25488a; /* Fare düğmenin üzerine geldiğinde arkaplan rengi */
+}
+
+
+</style>
+</head>
+<body>
+  <div class="panel">
+    <img src="src/1.png" alt="Logo" class="logo"> <!-- Logo görüntüsü -->
+     
+        <img src="src/5.png" alt="alt1"" class="alt1">  
+        <img src="src/2.png" alt="alt1"" class="alt6">  
+        <img src="src/7.png" alt="alt2"" class="alt2">  
+        <img src="src/4.png" alt="alt3"" class="alt3">  
+        <img src="src/3.png" alt="alt3"" class="alt4">  
+        <img src="src/wallet.png" alt="alt3"" class="alt5"> 
+        
+</div>
+
+
+<div class="panel"> 
+  <div class="inner-panelb">
+    <p class="baslikc">Backpack</p>
+  </div>
+  <div class="inner-panelb">
+    <p class="baslikb">ICO - Token Swap</p>
+  </div>
+  <div class="inner-panelb">
+    <p class="baslikb">Başlık 3</p>
+  </div>
+  <div class="inner-panelb">
+    <p class="baslikb">Başlık 4</p>
+  </div>
+  <div class="inner-panelb">
+    <p class="baslikb">Open infrastructure for developers</p>
+  </div>
+  <div class="inner-panelb">
+    <p class="baslikb">Steno-NFT Market Place</p>
+  </div>
+  <div class="inner-panelb">
+    <p class="baslikb">Connect to Simulation Network</p>
+  </div>
+  <div class="inner-panelb">
+    <p class="baslikb">Build Steno-contracts without writing code</p>
+  </div>
+</div>
+
+
+  <div class="panel"> 
+    <div class="inner-panelb">
+      <p class="baslikc">GET DATA FOR STEONOGRAPY</p>
+    </div>
+     
+    <div class="inner-panelb">
+      <div class="inner-panelb">
+        <p class="baslikb">Get data from Word, Text or PDF </p>
+      </div> 
+ <!-- Resim Yükleme Butonu -->
+ <p class="baslikc">or get data from textbox</p> <br>
+ <input type="file" id="image-upload" accept="image/*">
+  
+ <!-- Metin Kutusu -->
+ <input type="text" id="text-input" placeholder="Metin kutusu">
+ <!-- Encode Butonu -->
+ <button id="encode-button">Encode</button>
+ 
+    </div>
+    
+
+    <div class="inner-panelb">
+      
+      <div class="inner-panele">
+        <p class="baslike">Three-key StenoNFT encryption</p>
+      </div>
+      <div class="inner-panele">
+        <p class="baslike">Internet of NFT</p>
+      </div>
+      
+    </div>
+    <div class="inner-panelH">
+      <p class="baslikH">User Manual (Help)</p>
+    </div>
+    
+  </div>
+  
+ 
+
+
+  <div class="panel"> 
+    <div class="inner-panel3">
+      <p class="baslik3">The STENO-NFT algorithm can be used for NFTs but was not developed for NFTs. See: Introduction</p>
+      
+    </div>
+    <div class="encode-panel">
+       
+      <!-- Resim Önizleme Alanı -->
+      <div id="preview"></div>
+      
+       
+      
+       
+    </div>
+  </div>
+
+  
+ <script>
+  document.addEventListener('DOMContentLoaded', function () {
+  const imageUpload = document.getElementById('image-upload');
+  const preview = document.getElementById('preview');
+
+  // Dosya seç butonuna bir dosya seçildiğinde çalışacak fonksiyon
+  imageUpload.addEventListener('change', function (event) {
+    const file = event.target.files[0];
+    const reader = new FileReader();
+
+    reader.onload = function (event) {
+      const img = new Image();
+      img.src = event.target.result;
+
+      img.onload = function () {
+        const targetWidth = 300; // Hedef genişlik (örneğin, 300 piksel)
+        const aspectRatio = img.width / img.height;
+        let width, height;
+
+        if (aspectRatio >= 1) {
+          // Yatay görüntüler için genişlik ayarı
+          width = targetWidth;
+          height = targetWidth / aspectRatio;
+        } else {
+          // Dikey görüntüler için yükseklik ayarı
+          width = targetWidth * aspectRatio;
+          height = targetWidth;
+        }
+
+        img.style.width = width + 'px';
+        img.style.height = height + 'px';
+        preview.innerHTML = ''; // Önceki ön izlemeyi temizle
+        preview.appendChild(img); // Yeni resmi ön izleme alanına ekle
+      };
+    };
+
+    if (file) {
+      reader.readAsDataURL(file); // Dosyayı oku ve veri URL'sine dönüştür
+    }
+  });
+
+  // Sayfa yüklendiğinde varsayılan resmi görüntüle
+  const defaultImage = new Image();
+  defaultImage.src = 'src/country-04.jpg';
+  defaultImage.onload = function () {
+    const targetWidth = 300; // Hedef genişlik (örneğin, 300 piksel)
+    const aspectRatio = defaultImage.width / defaultImage.height;
+    let width, height;
+
+    if (aspectRatio >= 1) {
+      // Yatay görüntüler için genişlik ayarı
+      width = targetWidth;
+      height = targetWidth / aspectRatio;
+    } else {
+      // Dikey görüntüler için yükseklik ayarı
+      width = targetWidth * aspectRatio;
+      height = targetWidth;
+    }
+
+    defaultImage.style.width = width + 'px';
+    defaultImage.style.height = height + 'px';
+    preview.appendChild(defaultImage); // Varsayılan resmi ön izleme alanına ekle
+  };
+});
+
+ </script>
+
+
+
+<div class="mobile-nav">
+  <!-- Resim düğmesi ekleyin -->
+  <img class="open-panel-btn" src="src/menu.png" alt="Menu">
+</div>
+  <div class="overlay">
+    
+  </div>
+  <div class="mobile-panel">
+    <!-- Resim düğmesi ekleyin -->
+    <img class="close-panel-btn" src="src/kapa.png" alt="Close">
+    <ul>
+      <img src="src/5.png" alt="alt1" class="alt1-2">  
+      <img src="src/3.png" alt="alt2" class="alt2-2">  
+      <img src="src/4.png" alt="alt3" class="alt3-2">  
+      <img src="src/2.png" alt="alt3" class="alt4-2">  
+      <img src="src/wallet.png" alt="alt3" class="alt5-2"> 
+    </ul>
+</div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const openBtn = document.querySelector('.open-panel-btn');
+      const closeBtn = document.querySelector('.close-panel-btn');
+      const overlay = document.querySelector('.overlay');
+      const panel = document.querySelector('.mobile-panel');
+  
+      openBtn.addEventListener('click', function () {
+        overlay.style.display = 'block';
+        panel.style.display = 'block';
+        setTimeout(() => {
+          overlay.style.opacity = '1';
+          panel.style.opacity = '1';
+        }, 10);
+      });
+  
+      closeBtn.addEventListener('click', function () {
+        overlay.style.opacity = '0';
+        panel.style.opacity = '0';
+        setTimeout(() => {
+          overlay.style.display = 'none';
+          panel.style.display = 'none';
+        }, 300);
+      });
+    });
+  </script>
+  
+
+</body>
+</html>

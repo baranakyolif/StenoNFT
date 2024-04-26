@@ -1,0 +1,292 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    background-color: black;
+    font-family: 'Bebas Neue', sans-serif;
+ font-size: large;
+scrollbar-width: thin; /* Firefox için */
+    scrollbar-color: #1e0852 #01021d; /* Firefox için */
+ 
+}
+
+body::-webkit-scrollbar {
+    width: 12px; /* WebKit tabanlı tarayıcılar için */
+}
+
+body::-webkit-scrollbar-thumb {
+    background-color: #999; /* Kaydırma çubuğu rengi */
+    border-radius: 10px;
+}
+
+body::-webkit-scrollbar-track {
+    background-color: #f0f0f0; /* Kaydırma çubuğu yolu rengi */
+}
+
+#question-container {
+    text-align: center;
+    padding: 20px;
+    color: white; /* Soru metin rengini beyaz yap */
+}
+
+#button-container {
+    margin-top: 20px;
+}
+
+button {
+    margin: 5px;
+    padding: 10px;
+    font-size: 16px;
+    background-color: transparent;
+    color: white;
+    border: 1px solid white;
+    border-radius: 5px;
+}
+
+button:hover {
+    background-color: white;
+    color: black;
+}
+
+
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    z-index: 2; /* Menüyü videonun üzerine getir */
+    font-family: 'Bebas Neue', sans-serif;
+}
+
+ 
+
+.logo img {
+    width: 120px; /* Logo genişliği */
+    height: auto;
+}
+
+
+
+
+
+
+
+.menu {
+    display: flex;
+}
+
+.menu a {
+    color: white;
+    text-decoration: none;
+    padding: 10px;
+    margin-right: 50px;
+    
+    border-radius: 5px;
+}
+
+.menu a:hover {
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+
+/* ... (diğer CSS kodları) ... */
+.menu-icon {
+    display: none;
+    cursor: pointer;
+    position: fixed; /* Sabit bir pozisyon */
+    top: 10px; /* Üstten 10 piksel mesafe */
+    right: 10px; /* Sağdan 10 piksel mesafe */
+    z-index: 1000; /* Diğer öğelerin üzerine çıkarma */
+}
+
+.menu-icon .bar {
+    width: 25px;
+    height: 3px;
+    background-color: white;
+    margin: 6px 0;
+}
+
+
+
+
+
+@media screen and (max-width: 768px) {
+    .menu a {
+        display: none !important; /* Menü bağlantılarını gizle */
+    }
+
+    .menu-icon {
+        display: block; /* Menü simgesini göster */
+    }
+}
+
+
+
+/* ... (diğer CSS kodları) ... */
+
+ 
+
+
+
+/* back.css */
+
+ 
+
+/* Diğer stillendirmeleri buraya ekleyebilirsiniz */
+
+
+.video-container {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    height: 100vh;
+}
+
+#background-video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border: 0;
+}
+
+.overlay-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: white;
+    z-index: 1; /* Metinleri videonun üzerine getir */
+}
+
+.overlay-text h1 {
+    font-size: 3em;
+    margin-bottom: 10px;
+}
+
+.overlay-text p {
+    font-size: 1.5em;
+    margin-bottom: 20px;
+}
+
+.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 1em;
+    text-align: center;
+    text-decoration: none;
+    background-color: #3498db;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+    background-color: #2980b9;
+}
+
+.overlay1 {
+    position: absolute;
+    top: 50;
+    left: 50;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Siyah ve %50 saydam */
+    display: none;
+    z-index: 3; /* Video ve metinlerin üzerine getir */
+}
+
+.video-container:hover .overlay {
+    display: block;
+}
+/* ... (diğer CSS kodları) ... */
+/* ... (diğer CSS kodları) ... */
+
+.overlay-panel {
+    position: fixed;
+    top: 0;
+    right: -100%; /* Başlangıçta sağdan gelmesi için */
+    width: 50%; /* Panele istediğiniz genişliği verebilirsiniz */
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7); /* Yarı saydam siyah arkaplan */
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    transition: right 0.5s ease; /* Animasyon süresi ve geçiş efekti */
+}
+
+
+
+.overlay-panel2 {
+    position: fixed;
+    top: 0;
+    right: -100%; /* Başlangıçta sağdan gelmesi için */
+    width: 100%; /* Tam ekran genişliği */
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7); /* Yarı saydam siyah arkaplan */
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    transition: right 0.5s ease; /* Animasyon süresi ve geçiş efekti */
+}
+
+.show-panel2 {
+    right: 0; /* Sağdan gelme animasyonuyla görünür yapma */
+}
+
+
+
+
+.show-panell {
+    right: 0; /* Sağdan gelme animasyonuyla görünür yapma */
+}
+
+.showlogin {
+    right: 0;
+    animation: slideInFromRight 0.5s ease-in-out;
+}
+
+@keyframes slideInFromRight {
+    0% {
+        right: -100%; /* Sağdan kayarak gelmeye başladığı nokta */
+    }
+    100% {
+        rightt: 0; /* Sağdan kayarak tam görünür hale geldiği nokta */
+    }
+}
+
+.typing-container {
+    font-size: 24px;
+    white-space: nowrap;
+    overflow: hidden;
+    border-right: 2px solid white;
+    animation: typing 3s steps(30) forwards;
+    text-align: center; /* Yazıyı ortala */
+}
+
+@keyframes typing {
+    from {
+        width: 0;
+    }
+    to {
+        width: 100%;
+    }
+}
+
+.random-messages p {
+    cursor: pointer;
+}
+
+ 

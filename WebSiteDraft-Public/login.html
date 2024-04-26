@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Login Sayfası</title>
+<style>
+    body {
+        background-color: black;
+        color: white;
+        font-family: Arial, sans-serif;
+    }
+    .container {
+        width: 50%;
+        margin: 50px auto;
+        padding: 20px;
+        background-color: rgba(0, 0, 0, 0.5);
+        border-radius: 20px;
+    }
+    input[type="text"], input[type="password"], input[type="email"], input[type="submit"], button {
+        width: 100%;
+        padding: 10px;
+        margin: 5px 0;
+        border: 2px solid yellow;
+        border-radius: 10px;
+        background-color: rgba(0, 0, 0, 0.5);
+        color: white;
+        box-sizing: border-box;
+    }
+    input[type="submit"], button {
+        width: auto;
+        padding: 10px 20px;
+        margin-top: 10px;
+        border-radius: 10px;
+        background-color: rgb(212, 255, 0);
+        color: black;
+        cursor: pointer;
+    }
+    .forgot-password button {
+        width: auto;
+        padding: 10px 20px;
+        margin-top: 10px;
+        border-radius: 10px;
+        background-color: transparent;
+        border: 2px solid yellow;
+        color: yellow;
+        cursor: pointer;
+    }
+    .additional-textboxes {
+        display: none;
+    }
+</style>
+</head>
+<body>
+<div class="container">
+    <h2>Login</h2>
+    <form action="#" method="post">
+        <input type="text" name="username" placeholder="Kullanıcı Adı" required><br>
+        <input type="password" name="password" placeholder="Şifre" required><br>
+        <input type="checkbox" id="remember-me">
+        <label for="remember-me">Beni Hatırla</label><br>
+        <input type="submit" value="Login">
+    </form>
+    <div class="forgot-password">
+        <button onclick="showTextboxes()">Şifremi Unuttum</button>
+    </div>
+    <div class="additional-textboxes" id="additional-textboxes">
+        <input type="email" name="email" placeholder="E-mail Adresi" required><br>
+        <input type="submit" value="Send">
+    </div>
+</div>
+<script>
+    function showTextboxes() {
+        var additionalTextboxes = document.getElementById("additional-textboxes");
+        if (additionalTextboxes.style.display === "none") {
+            additionalTextboxes.style.display = "block";
+        } else {
+            additionalTextboxes.style.display = "none";
+        }
+    }
+</script>
+</body>
+</html>

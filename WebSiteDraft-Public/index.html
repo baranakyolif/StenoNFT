@@ -1,0 +1,1042 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="back.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+   
+ 
+
+    <title>Simulation Network</title>
+</head>
+<body>
+    
+
+    <div class="header">
+        <div class="logo">    
+            <img src="src/logo2.png" alt="Logo">
+        </div>
+        <div class="menu" id="delayed-menu">
+            <a href="anasayfa.html"   style="display: none;">Lets Started</a>
+             
+            <a href="login.html" style="display: none;">Login</a>
+             
+            <a href="#"  style="display: none;">Roadmap</a>
+             
+            <a href="#" style="display: none;">Whitepaper</a>
+             
+      
+            <a href="#"   style="display: none;">Why Solana?</a>
+            <a href="#" id="contactButton" style="display: none;">Tokenomic</a>
+             
+            <a href="#" id="startAudioButton" style="display: none;">What is the Steno-NFT?</a>
+        </div>
+
+    </div>
+
+    <style>
+        /* Diğer stiller buraya gelecek */
+
+        /* Hamburger menü stil */
+        .menu-btn {
+            display: none; /* Başlangıçta gizli olacak */
+            cursor: pointer;
+            z-index: 2;
+            position: fixed;
+            top: 20px;
+            right: 20px; /* Sağa olan mesafeyi belirtin */
+        }
+
+        .menu-btn span {
+            display: block;
+            height: 3px;
+            width: 25px;
+            background-color: white;
+            margin: 6px 0;
+            transition: 0.4s;
+        }
+
+        .overlay-menu {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.7);
+    overflow-x: hidden;
+    transition: 0.5s;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center the items horizontally */
+    justify-content: center; /* Center the items vertically */
+    padding-top: 60px;
+}
+
+.overlay-menu a {
+    padding: 8px;
+    text-decoration: none;
+    font-size: 18px;
+    color: white;
+    transition: 0.3s;
+    margin-bottom: 10px; /* Add some spacing between buttons */
+}
+
+.overlay-menu a:hover {
+    color: #818181;
+}
+
+
+        .close-btn {
+            position: absolute;
+            top: 20px;
+            right: 25px;
+            font-size: 30px;
+            cursor: pointer;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <!-- Diğer body içeriği buraya gelecek -->
+
+    <!-- Hamburger menü düğmesi -->
+    <div class="menu-btn" onclick="toggleOverlayMenu()">
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+
+    <!-- Overlay menü içeriği -->
+    <div class="overlay-menu">
+        <a href="test.html">Research</a>
+        <a href="gg.html">Company</a>
+        <a href="artificialintelegance.html">AI</a>
+        <a href="datascience.html">Data Science</a>
+        <a href="#" onclick="showIndustryPanel()">Industry 4.0</a>
+        <a href="#" onclick="showClipboardPanel()">Clipboard</a>
+        <a href="#" onclick="showContactPanel()">Contact</a>
+
+        <!-- Diğer menü öğeleri buraya eklenecek -->
+        <div class="close-btn" onclick="toggleOverlayMenu()">&times;</div>
+    </div>
+
+    <!-- Diğer body içeriği buraya gelecek -->
+
+    <script>
+        
+        // Sayfa yüklendiğinde ve yeniden boyutlandığında kontrol et
+        window.addEventListener('load', checkScreenSize);
+        window.addEventListener('resize', checkScreenSize);
+
+        // Ekran boyutunu kontrol eden fonksiyon
+        function checkScreenSize() {
+            var menuBtn = document.querySelector('.menu-btn');
+
+            // Ekran genişliği 768 pikselden küçükse menü düğmesini göster, değilse gizle
+            if (window.innerWidth <= 768) {
+                menuBtn.style.display = "block";
+            } else {
+                menuBtn.style.display = "none";
+            }
+        }
+
+        // Hamburger menüyü açma/kapatma fonksiyonu
+        function toggleOverlayMenu() {
+            var overlayMenu = document.querySelector('.overlay-menu');
+            var menuBtn = document.querySelector('.menu-btn');
+
+            if (overlayMenu.style.width == "100%") {
+                overlayMenu.style.width = "0";
+            } else {
+                overlayMenu.style.width = "100%";
+            }
+        }
+    </script>
+
+
+<div class="industry-panel" id="industryPanel">
+    <div class="industry-container">
+        <p>What if The Mind is a technology company designed in line with the Industry 4.0 mission and positioning itself as an early adopter in terms of the dynamics of the new era. While its focus is on technology, it is also social and humanitarian in terms of the goals it seeks to achieve. !F - It is a structure organized around an idea that has adopted the principles of important institutions such as the European Union and the United Nations and is determined to show commitment to these values. Its main principles are to develop projects and studies in line with these principles, to adhere to ethical standards and sustainability principles, and to act with a common understanding of communication and information sharing by cooperating with stakeholders from all over the world in a global framework. Although !F is a company operating in the field of technology and artificial intelligence, it aims to achieve positive goals for different dynamics of society. In this context, it plans to integrate artificial intelligence technologies into humanitarian aid and solidarity, clean energy, sustainable agriculture, drought problems, safe internet, digital ethics.
+
+            The digital transformation that started with Industry 3.0 has some highly overlooked outputs. These are digital bullying, digital harassment, digital racism and a large set of actions consisting of dozens of other concepts. With the new industrial revolution, the awareness that we developers and technology producers will provide in these areas and the reflection of these awareness on our projects, production processes and products will play a very important role in the dynamics of the new era.
+            
+             <a href="#" ">About us! -</a></p>
+        <button onclick="closeIndustryPanel()">Close</button>
+    </div>
+</div>
+
+<script>
+    // Add this function to show the Industry 4.0 panel
+function showIndustryPanel() {
+    var industryPanel = document.getElementById('industryPanel');
+    industryPanel.classList.add('show-industry-panel');
+}
+
+// Add this function to close the Industry 4.0 panel
+function closeIndustryPanel() {
+    var industryPanel = document.getElementById('industryPanel');
+    industryPanel.classList.remove('show-industry-panel');
+}
+
+// Modify the existing function to toggle the hamburger menu
+function toggleOverlayMenu() {
+    var overlayMenu = document.querySelector('.overlay-menu');
+    var menuBtn = document.querySelector('.menu-btn');
+
+    if (overlayMenu.style.width == "100%") {
+        overlayMenu.style.width = "0";
+    } else {
+        overlayMenu.style.width = "100%";
+        // Close other panels when the hamburger menu is opened
+        closeIndustryPanel();
+    }
+}
+
+</script>
+
+<style>
+    /* Add this style for the Industry 4.0 panel */
+.industry-panel {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 70%;
+    max-width: 500px;
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 20px;
+    border-radius: 10px;
+    display: none;
+    z-index: 999;
+    color: #fff;
+    font-size: small;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+/* Add this style to show the Industry 4.0 panel */
+.show-industry-panel {
+    display: block;
+}
+
+</style>
+
+<div class="contact-panel" id="contactPanel">
+    <div class="contact-container">
+        <h1>Contact Us</h1>
+        <h2>info@whatifthemind.com</h2>
+        <button onclick="closeContactPanel()">Close</button>
+    </div>
+</div>
+<script>
+    // Add this function to show the contact panel
+function showContactPanel() {
+    var contactPanel = document.getElementById('contactPanel');
+    contactPanel.classList.add('show-contact-panel');
+}
+
+// Add this function to close the contact panel
+function closeContactPanel() {
+    var contactPanel = document.getElementById('contactPanel');
+    contactPanel.classList.remove('show-contact-panel');
+}
+
+</script>
+
+     <style>
+        /* Add this style for the contact panel */
+.contact-panel {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 70%;
+    max-width: 500px;
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 20px;
+    color: #fff;
+    border-radius: 10px;
+    display: none;
+    z-index: 999;
+    font-size: small;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+/* Add this style to show the contact panel */
+.show-contact-panel {
+    display: block;
+}
+
+     </style>
+
+
+
+<audio id="background-audioer" preload="auto" >
+    <source src="src/ss.mp3" type="audio/mp3">
+    Your browser does not support the audio element.
+</audio>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        var audio = document.getElementById("background-audioer");
+        audio.play();
+    });
+    </script>
+    
+
+    <div class="video-container">
+        <video autoplay muted loop id="background-video" preload="auto">
+            <source src="src/back.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <audio id="background-audio" preload="auto" >
+            <source src="src/ss.mp3" type="audio/mp3">
+            Your browser does not support the audio element.
+        </audio>
+         
+        
+    </div>
+ 
+    <div class="clipboard-panel" id="clipboardPanel">
+        <div class="clipboard-container">
+            <p>Public Announcement</p>
+            <p>Planning of regional data repositories for training AI models over distributed networks across Europe and the first tests of an AI architecture based on Federated Learning have started.</p>
+        </div>
+        <div class="clipboard-container">
+            <p>Notification</p> 
+            <p>As part of our data security efforts, we have developed a unique P2P encryption standard to be used in future !F projects.</p>
+        </div>
+        <button onclick="closeClipboardPanel()">Close</button>
+    </div>
+
+    <script>
+        // Add this function to show the clipboard panel
+function showClipboardPanel() {
+    var clipboardPanel = document.getElementById('clipboardPanel');
+    clipboardPanel.classList.add('show-clipboard-panel');
+}
+
+// Add this function to close the clipboard panel
+function closeClipboardPanel() {
+    var clipboardPanel = document.getElementById('clipboardPanel');
+    clipboardPanel.classList.remove('show-clipboard-panel');
+}
+
+    </script>
+ 
+ <style>
+    /* Add this style for the clipboard panel */
+.clipboard-panel {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 70%;
+    max-width: 500px;
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 20px;
+    border-radius: 10px;
+    display: none;
+    z-index: 999;
+    font-size: small;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+/* Add this style to show the clipboard panel */
+.show-clipboard-panel {
+    display: block;
+}
+
+/* Add this style for clipboard containers */
+.clipboard-container {
+    margin-bottom: 10px;
+}
+
+/* Optionally, add specific styles for the text inside containers */
+.clipboard-container p {
+    color: white;
+}
+
+ </style>
+
+    <div class="overlay-panel" id="overlayPanel">
+        <p class="typing-container">
+            <span class="typing-text"></span>
+        </p>
+        
+        <div class="random-messages" style="display:none;">
+           </div>
+    </div>
+
+    <div class="overlay-panel2" id="overlayPanel2">
+        <p class="typing-container">
+            <span class="typing-text"></span>
+        </p>
+       
+        </div>
+    </div>
+    
+    
+    <style>
+ 
+
+        /* Yeni stil kuralları */
+        .contact-panel {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 70%;
+            max-width: 500px;
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 20px;
+            border-radius: 10px;
+            display: none;
+            z-index: 999;
+            font-size: small;
+            font-family: 'Courier New', Courier, monospace;
+        }
+        .contact-panel2 {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 70%;
+            max-width: 500px;
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 20px;
+            border-radius: 10px;
+            display: none;
+            z-index: 999;
+            font-size: small;
+            font-family: 'Courier New', Courier, monospace;
+        }
+    
+        .contact-container {
+            color: white;
+            text-align: center;
+        }
+        .contact-container2 {
+            color: white;
+            text-align: center;
+        }
+    
+        .contact-container form {
+            margin-top: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .contact-container2 form {
+            margin-top: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+    
+        .contact-container input,
+        .contact-container textarea {
+            width: 100%;
+            padding: 10px;
+            margin: 5px 0;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+            transition: border-color 0.3s ease;
+            box-sizing: border-box;
+        }
+    
+        .contact-container textarea {
+            resize: vertical;
+        }
+
+        .contact-container2 input,
+        .contact-container2 textarea {
+            width: 100%;
+            padding: 10px;
+            margin: 5px 0;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+            transition: border-color 0.3s ease;
+            box-sizing: border-box;
+        }
+    
+        .contact-container2 textarea {
+            resize: vertical;
+        }
+    
+        .contact-container input:focus,
+        .contact-container textarea:focus {
+            border-color: #3498db;
+        }
+    
+        .contact-container button {
+            width: 100%;
+            background-color: #171818;
+            color: #fff;
+            padding: 10px;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            box-sizing: border-box;
+        }
+    
+        .contact-container2 button:hover {
+            background-color: #242c31;
+        }
+    
+        .contact-container2 button,
+        .contact-container2 form input,
+        .contact-container2 form textarea {
+            margin-top: 10px;
+        }
+    
+
+        .contact-container2 input:focus,
+        .contact-container2 textarea:focus {
+            border-color: #3498db;
+        }
+    
+        .contact-container2 button {
+            width: 100%;
+            background-color: #171818;
+            color: #fff;
+            padding: 10px;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            box-sizing: border-box;
+        }
+    
+        .contact-container2 button:hover {
+            background-color: #242c31;
+        }
+    
+        .contact-container2 button,
+        .contact-container2 form input,
+        .contact-container2 form textarea {
+            margin-top: 10px;
+        }
+
+        .show-contact-panel {
+            display: block;
+        }
+        .show-contact-panel2 {
+            display: block;
+        }
+         
+        .show-contact-panel2 {
+        display: block;
+    }
+    </style>
+    
+    <div class="contact-panel2" id="contactPanel2">
+        <div class="contact-container2">
+            <a href="test.html" style="display: none;">Services</a>
+           <p>What if The Mind is a technology company designed in line with the  <a href="https://drive.google.com/file/d/1gIa2xsZDHI9kklDBFgb-j38hohen-mP4/view?usp=sharing" style="font-size: 12px;   color: white;">Industry 4.0  <i class="fa fa-arrow-right"></i></a>  mission and positioning itself as an early adopter in terms of the dynamics of the new era. While its focus is on technology, it is also social and humanitarian in terms of the goals it seeks to achieve.  !F - It is a structure organized around an idea that has adopted the principles of important institutions such as the European Union and the United Nations and is determined to show commitment to these values. Its main principles are to develop projects and studies in line with these principles, to adhere to ethical standards and sustainability principles, and to act with a common understanding of communication and information sharing by cooperating with stakeholders from all over the world in a global framework.  Although !F is a company operating in the field of technology and artificial intelligence, it aims to achieve positive goals for different dynamics of society.  In this context, it plans to integrate artificial intelligence technologies into humanitarian aid and solidarity, clean energy, sustainable agriculture, drought problems, safe internet, digital ethics. 
+<br><br>
+            The digital transformation that started with Industry 3.0 has some highly overlooked outputs. These are digital bullying, digital harassment, digital racism and a large set of actions consisting of dozens of other concepts. With the new industrial revolution, the awareness that we developers and technology producers will provide in these areas and the reflection of these awareness on our projects, production processes and products will play a very important role in the dynamics of the new era.  </p>
+            <a href="gg.html" style="font-size: 16px; font-weight: bold; color: white;">About us! -  <i class="fa fa-arrow-right"></i></a>
+               
+
+
+        </div>
+
+    </div>
+    
+     
+    
+    
+
+ 
+
+
+
+    <div class="contact-panel" id="contactPanel">
+        <div class="contact-container">
+            <h1>Contact Us</h1>
+            <h2>info@whatifthemind.com</h2>
+         
+            <button onclick="closeContactPanel()">Close</button>
+        </div>
+    </div>
+    
+ 
+
+    
+ 
+
+<script>
+    document.getElementById('loginpanel').addEventListener('click', function () {
+        showOverlayCompany();
+
+        function showOverlayCompany() {
+            var overlayPanel = document.getElementById('overlayPanel2');
+            overlayPanel.classList.add('showlogin');
+
+            // First Container
+            var container1 = document.createElement('div');
+            container1.style.backgroundColor = '#333';
+            container1.style.color = 'white';
+            container1.style.padding = '20px';
+            container1.style.borderRadius = '10px';
+            container1.style.marginBottom = '20px';
+            container1.style.marginLeft = '20%';
+            container1.style.marginRight = '20%';
+
+            // Title for Container 1
+            var title1 = document.createElement('h2');
+            title1.textContent = 'Public Announcement';
+            container1.appendChild(title1);
+
+            // Text for Container 1
+            var text1 = document.createElement('p');
+            text1.textContent = 'Planning of regional data repositories for training AI models over distributed networks across Europe and the first tests of an AI architecture based on Federated Learning have started.';
+            container1.appendChild(text1);
+
+            overlayPanel.appendChild(container1);
+
+            // Second Container
+            var container2 = document.createElement('div');
+            container2.style.backgroundColor = '#555';
+            container2.style.color = 'white';
+            container2.style.padding = '20px';
+            container2.style.borderRadius = '10px';
+            container2.style.marginBottom = '20px';
+            container2.style.marginLeft = '20%';
+            container2.style.marginRight = '20%';
+            // Title for Container 2
+            var title2 = document.createElement('h2');
+            title2.textContent = 'Notification';
+            container2.appendChild(title2);
+
+            // Text for Container 2
+            var text2 = document.createElement('p');
+            text2.textContent = 'As part of our data security efforts, we have developed a unique P2P encryption standard to be used in future !F projects. ';
+            container2.appendChild(text2);
+
+            overlayPanel.appendChild(container2);
+
+            // "Back" button
+            var back = document.createElement('button');
+            back.textContent = 'Back';
+            back.style.opacity = '0.5';
+            back.style.color = 'white';
+            back.style.backgroundColor = 'black';
+            back.style.border = 'none';
+            back.style.padding = '10px';
+            back.style.cursor = 'pointer';
+            back.addEventListener('click', closeOverlayCompany);
+            back.style.borderRadius = '8px';
+            overlayPanel.appendChild(back);
+
+            // Function to close the overlay panel
+            function closeOverlayCompany() {
+                while (overlayPanel.firstChild) {
+                    overlayPanel.removeChild(overlayPanel.firstChild);
+                }
+                overlayPanel.classList.remove('showlogin');
+            }
+        }
+    });
+</script>
+
+
+ 
+    
+    
+    
+
+
+
+
+    <script>
+        document.getElementById('start2').addEventListener('click', function() {
+            showOverlaycompany();
+    
+            function showOverlaycompany() {
+                var overlayPanel = document.getElementById('overlayPanel2');
+                overlayPanel.classList.add('show-panell');
+    
+                // Başlık ve yazı ekleyebilirsiniz
+                var panelBaslik = document.createElement('h1');
+                panelBaslik.textContent = 'Company Story';
+                overlayPanel.appendChild(panelBaslik);
+    
+                var panelYazi = document.createElement('p');
+                panelYazi.textContent = 'Bu panel içerisine eklemek istediğiniz uzun yazı buraya gelebilir. İsterseniz birden fazla paragraf ekleyebilir, metni istediğiniz gibi düzenleyebilirsiniz.';
+                overlayPanel.appendChild(panelYazi);
+    
+                  // "Back" düğmesi ekleyebilirsiniz
+            var back = document.createElement('button');
+            back.textContent = 'Back';
+            back.style.opacity = '0.5'; // Düğme saydamlığı
+            back.style.color = 'white'; // Yazı rengi beyaz
+            back.style.backgroundColor = 'black'; // Arka plan rengi siyah
+            back.style.border = 'none'; // Kenarlık yok
+            back.style.padding = '10px'; // Kenarlardan içeriye boşluk
+            back.style.cursor = 'pointer'; // Cursor'ı bir el işareti olarak ayarla
+            back.addEventListener('click', closeOverlayCompany);
+            back.style.borderRadius = '8px'; // Köşe yumuşatma
+            overlayPanel.appendChild(back);
+    
+                // Paneli kapatma fonksiyonu
+                function closeOverlayCompany() {
+                    // Paneldeki tüm içerikleri temizle
+                    while (overlayPanel.firstChild) {
+                        overlayPanel.removeChild(overlayPanel.firstChild);
+                    }
+                    overlayPanel.classList.remove('show-panell');
+                }
+
+
+                
+            }
+        }); 
+    </script>
+
+    <script>
+        var overlayPanel; // overlayPanel'i global olarak tanımla
+        var audioButtonClicked = false; // Tıklanma durumunu kontrol eden değişken
+    
+        document.getElementById('startAudioButton').addEventListener('click', function() {
+            if (!audioButtonClicked) {
+                audioButtonClicked = true; // Değişkeni güncelle, böylece bir daha tıklanamaz
+                document.getElementById('background-audio').play();
+                showOverlayPanel();
+            }
+        });
+    
+        function showOverlayPanel() {
+            overlayPanel = document.getElementById('overlayPanel'); // overlayPanel'i tanımla
+            overlayPanel.classList.add('show-panell');
+        }
+    
+        setTimeout(function() {
+            var delayedMenu = document.getElementById('delayed-menu');
+            var menuLinks = delayedMenu.getElementsByTagName('a');
+    
+            for (var i = 0; i < menuLinks.length; i++) {
+                menuLinks[i].style.display = 'inline-block';
+            }
+        },  );  
+        function toggleMenu() {
+            var menuLinks = document.getElementById('delayed-menu');
+            menuLinks.classList.toggle('show-menu');
+        }
+    </script>
+    
+     
+
+    <div class="image-container" id="image">
+        <img src="src/ret.jpg" alt="Resim açıklaması">
+    </div>
+<br>  
+     
+</div>
+ 
+
+ 
+
+    <div class="main-container">
+        <div class="text-container" id="text">
+            <h1> Details   </h1>
+            <p> At the forefront of a new wave of technology, StenoNFT combines data storage and encryption techniques on images in a revolutionary approach. This innovative project aims to make digital communication private and secure by hiding all kinds of data (text, codes, etc.) in the pixels of images. The main goal of our project is to extend the use of NFT technology by hiding data packets, such as classic text or program trigger codes, on a pixel-by-pixel basis. In this way, users can develop new applications on the system such as data security, automatic triggering, contract execution, tokenization, licensing, data authentication and identity management. Also, distributed transaction optimization and alternative blockchain communication modules are important components of our project.
+                <br><br>StenoNFT is designed to perform community activities in a unique way and use NFTs more effectively in different fields. This project aims to create a chain of protocols to transform the form of digital data and add different data into it. Although our launch is based on NFTs, our roadmap is designed with a mission to reach more advanced technologies, which we call StenoSimulation. </p>
+             <br> <iframe width="560" height="315" src="https://www.youtube.com/embed/c58BUH0-Whk?si=SQ7OAzLX5X2hogqv" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </div>
+ 
+        <div class="text-container" id="text">
+            <h1> How is Work? </h1>
+            <p> The architecture of our project consists of four main stages:
+                <br>
+               <br>-Determining the most suitable pixels for data processing
+               <br>-Applying compression and encryption to the uploaded data packet.
+               <br>-Embedding the compressed data packet into pixels.
+               <br>-NFT activation and integration with APIs over the internet.
+               <br><br>
+                In this process, data is compressed and encrypted using recursive Huffman compression and embedded into pixels in a 21-bit representation. The system reverses the process to retrieve the data packets, ensuring the accuracy and security of the data.</p>
+                <h1> Pixel Optimization </h1>
+                <p>The developed system algorithmically identifies the propagation steps of Physarum polycephalum, a biological model for identifying pixels in an image, and this is combined with Dijkstra's algorithm to select the most appropriate pixels. This optimization creates ideal conditions for hiding textual data while preserving the integrity of the image.</p>
+         <p>StenoNFT ile görüntüler artık sadece görsel medya değil, aynı zamanda güçlü ve güvenli bir iletişim aracıdır. Gelin, bu teknoloji devrimine siz de katılın!</p>
+            </div>
+    </div>
+<br> <br> <br>
+    <div class="main-container">
+        <div class="image-container" id="image">
+            <img src="src/ret.jpg" alt="Resim açıklaması">
+        </div>
+        <div class="image-container" id="image">
+            <img src="src/ret.jpg" alt="Resim açıklaması">
+        </div>
+    </div>
+    
+
+
+    <div class="main-container">
+        <div class="text-container" id="text">
+            <h1>What Will This Technology Do?</h1>
+            <p> StenoNFT is a technology designed to radically change the approach to data and information processing. By changing the form of information, this innovative platform can be synchronized with different data types and become a developer tool for various optimization and scaling problems, especially for NFTs. This feature has a significant value that opens the door to new developments, especially for blockchain-based Cointeknik projects.
+<br><br>
+                One of the most exciting aspects of StenoNFT is the StenoSimulation architecture we plan to achieve. This architecture includes the necessary validation steps for an AI-powered decentralized simulation system and makes NFTs an integral part of this validation process. This unique approach demonstrates that NFTs can be effective in a much wider range of applications beyond their known use cases.
+                <br><br>
+                Over time, the open-source nature of StenoNFT could lead to the birth of new technologies that are currently unimaginable. The platform offers a highly innovative system called the 'Internet of NFTs', where components of digital art collections can communicate with each other, transferring data uploaded to images or program trigger codes to other NFTs.
+                <br><br>
+                This structure aims to create not just a step, but a leap in the field of digital communication and data storage. With StenoNFT, the boundaries between art, data security and blockchain technologies are being redrawn. Come and witness this technological revolution!
+              <br><br>  The Internet of NFT Network, on the other hand, is another module of our project that fully utilizes the potential of NFT technology, enabling dynamic communication between digital assets and smart contracts. It provides developers and NFT communities with the opportunity to realize previously unimaginable transactions.
+            </p>
+        </div>
+ 
+        <div class="text-container" id="text">
+            <h1>The Internet of NFT Network: </h1>
+            <p>The Internet of NFT Network is an innovative platform created for NFT communities and developers. This network allows short trigger codes or long packets of information to be streamed directly to NFTs, which communicate dynamically to perform certain operations. This capability includes infrastructure that enables developers to initiate or update protocol steps related to values hidden within NFTs by networking between NFT collections. For example, a developer can create a smart contract that contains specific collection members. By unpacking the information packets inside the images, this smart contract accesses the necessary transaction information and initiates the relevant steps based on this information.  </p>
+            <h1> How the Internet of NFT Architecture Works </h1>
+            <p>
+   
+
+        <br>-Textual Data Embedding Phase: First, textual data is secretly embedded into a given image using a short algorithm. This process ensures that the data is too small for the human eye to detect.
+        <br>-Text Decoding and Identification: In the second step, the embedded textual data is decoded from the image to obtain the original text. This text, which will contain a unique identifier for each image, is associated with smart contracts on the blockchain.
+        <br>- Smart Contract Creation and Association: In the third step, smart contracts are created on the blockchain based on the ID token for each image, and these contracts are identified and associated with users.
+        <br>- Key Confirmation and Request Submission: In the fourth step, the keys required to perform certain actions are confirmed. These keys are used to send a request to the blockchain.
+        <br>-Blockchain Transaction and Smart Contract Initialization: In the fifth and final step, the blockchain validates the incoming request and initializes the smart contract. This transaction is recorded as a specific transaction on the blockchain and the smart contract is allowed to perform the specified action.
+            </p>
+        </div>
+    </div>
+     
+    
+        
+ 
+
+    
+
+
+
+
+<style> 
+.more {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    z-index: 2; /* Menüyü videonun üzerine getir */
+    font-family: 'Bebas Neue', sans-serif;
+    color: #fff;
+}
+
+.logo {
+    flex: 0 0 auto; /* Logo'nun boyutunu sabit tutar */
+}
+
+.link {
+    flex: 1; /* Yazı alanının tüm boşluğu kaplamasını sağlar */
+    text-align: center; /* Yazıyı ortalar */
+    color: white !important; /* Yazı rengi beyaz */
+    -webkit-text-fill-color: white !important; /* Webkit tarayıcılar için yazı rengini beyaz yapar */
+    color: white;
+    text-decoration: none;
+    padding: 10px;
+    margin-right: 50px;
+    font-family: 'Bebas Neue', sans-serif;
+    border-radius: 5px;
+}
+
+
+
+</style>
+ 
+
+
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Arial', sans-serif;
+            background-color: #050e24;
+            overflow-x: hidden;
+        }
+
+        .main-container {
+            width: 70%;
+            margin: auto;
+            overflow: hidden;
+            display: flex;
+            max-width: 1200px;
+            text-align: justify;
+        }
+
+        .image-container {
+            flex: 1;
+            border-radius: 15px;
+            overflow: hidden;
+            margin-right: 20px;
+        }
+
+        .image-container img {
+            width: 50%;
+            height: auto;
+            border-radius: 15px;
+        }
+
+        .text-container {
+            flex: 1;
+            background-color: #080f3700;
+            border-radius: 15px;
+            padding: 20px;
+            box-sizing: border-box;
+            
+        }
+
+        .text-container h1 {
+            color: #333;
+            
+        }
+
+        .text-container p {
+            color: #666; 
+            
+        }
+
+        
+    </style>
+
+ 
+</head>
+<body>
+
+    
+
+    
+
+<script>
+    var stopTyping = false;
+
+    function typeWriterEffect(message, element, speed, callback) {
+        function type() {
+            if (stopTyping) return;
+            if (index < message.length) {
+                if (message.charAt(index) === '\n') {
+                    element.innerHTML += '<br>';
+                } else {
+                    element.innerHTML += message.charAt(index);
+                }
+                index++;
+                setTimeout(type, speed);
+            } else {
+                if (callback) {
+                    callback();
+                }
+            }
+        }
+
+        var index = 0;
+        type();
+    }
+
+    document.addEventListener("DOMContentLoaded", function() {
+        var typingText = document.querySelector(".typing-text");
+        var randomMessages = document.querySelector(".random-messages");
+        var startAudioButton = document.getElementById('startAudioButton');
+
+        function typeMessage() {
+            var message = " StenoNFT is designed to perform community activities \nin a unique way and use NFTs more effectively in different\n fields. This project aims to create a chain of protocols to\n transform the form of digital data and add different data into it.\n";
+            typeWriterEffect(message, typingText, 60, showRandomMessages);
+        }
+
+        function showRandomMessages() {
+            randomMessages.style.display = "block";
+            var clickableMessages = randomMessages.querySelectorAll('p');
+            clickableMessages.forEach(function(message) {
+                message.addEventListener('click', function() {
+                    showNextMessage(this.innerHTML);
+                });
+            });
+
+            var connectToChatbotButton = document.createElement('button');
+            connectToChatbotButton.textContent = 'Whitepaper';
+            connectToChatbotButton.style.opacity = '0.5';
+            connectToChatbotButton.style.color = 'white';
+            connectToChatbotButton.style.backgroundColor = 'black';
+            connectToChatbotButton.style.border = 'none';
+            connectToChatbotButton.style.padding = '10px';
+            connectToChatbotButton.style.cursor = 'pointer';
+            connectToChatbotButton.style.borderRadius = '8px';
+            connectToChatbotButton.addEventListener('click', function() {
+                showNextMessage('Down Page');
+            });
+            randomMessages.appendChild(connectToChatbotButton);
+
+            var closePanelButton = document.createElement('button');
+            closePanelButton.textContent = 'Get Start';
+            closePanelButton.style.opacity = '0.5';
+            closePanelButton.style.color = 'white';
+            closePanelButton.style.backgroundColor = 'black';
+            closePanelButton.style.border = 'none';
+            closePanelButton.style.padding = '10px';
+            closePanelButton.style.cursor = 'pointer';
+            closePanelButton.style.borderRadius = '8px';
+            closePanelButton.addEventListener('click', function() {
+                closeOverlayCompany();
+                closeOverlayy();
+            });
+            randomMessages.appendChild(closePanelButton);
+        }
+
+// Paneli kapatma fonksiyonu
+function closeOverlayy() {
+        // Paneldeki tüm içerikleri temizle
+        while (overlayPanel.firstChild) {
+            overlayPanel.removeChild(overlayPanel.firstChild);
+        }
+        overlayPanel.classList.remove('show-panell');
+                }
+
+        function showNextMessage(newMessage) {
+            typeWriterEffect(newMessage, typingText, 75, function() {
+                if (newMessage.includes('Connect to Chatbot')) {
+                    setTimeout(function() {
+                        window.location.href = 'map.html';
+                    }, 0);
+                }
+            });
+        }
+
+
+        
+
+        function closeOverlayCompany() {
+            stopTyping = true;
+            typingText.innerHTML = '';
+            while (randomMessages.firstChild) {
+                randomMessages.removeChild(randomMessages.firstChild);
+            }
+            randomMessages.style.display = "none";
+            document.getElementById('background-audio').pause();
+        }
+
+        startAudioButton.addEventListener('click', function() {
+            document.getElementById('background-audio').play();
+            typeMessage();
+        });
+    });
+
+
+
+</script>
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-EYDE22DS56"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-EYDE22DS56');
+</script>
+
+</body>
+</html>
