@@ -10,6 +10,21 @@ The places represented in red in the image are where a total of 4000 ASCII chara
 ![image](https://github.com/baranakyolif/StenoNFT/assets/165828667/bd55f90b-57e0-452d-ad78-c37c50354baa)
 
 
+UPDATE 2: (28.04.2024)
+
+IMAGE IN PIXELS OF THE IMAGE
+This python code hides another image in the most relevant pixels of the image using the Least Significant
+Bit (LSB) truncation technique. Picture-in-picture logic is used to hide another linked image within an NFT.
+
+CODE: https://github.com/baranakyolif/StenoNFT/blob/main/imageintoimage
+
+CODE OUTPUT: 
+![Görünen Resim](https://github.com/baranakyolif/StenoNFT/assets/165828667/51547c4c-c87c-4c14-b21f-f19e6d31b15b)
+
+ 
+
+ 
+
 INTRODUCTION 
 
 What is the StenoNFT?
