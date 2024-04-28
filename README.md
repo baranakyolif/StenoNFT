@@ -22,6 +22,8 @@ CODE OUTPUT:
 ![Görünen Resim](https://github.com/baranakyolif/StenoNFT/assets/165828667/51547c4c-c87c-4c14-b21f-f19e6d31b15b)
 
  
+Output of the version with the sizing issue fixed (Python)
+![8](https://github.com/baranakyolif/StenoNFT/assets/165828667/f1ca3723-2110-4d60-9f4d-084981970f80)
 
  
 
