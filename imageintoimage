@@ -1,7 +1,7 @@
 This python code hides another image in the most relevant pixels of the image using the Least
 Significant Bit (LSB) shorthand technique. Picture-in-picture logic is used to hide another linked image inside an NFT.
 
-
+Attention: sizing has not been optimized. In 2 days we will add updated codes
 
 
 import numpy as np
