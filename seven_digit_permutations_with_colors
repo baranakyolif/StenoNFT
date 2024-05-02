@@ -103,4 +103,5 @@ seven_digit_permutations_with_colors:
 0001034: (0, 4, 11)
 0001035: (0, 4, 12)
 0001036: (0, 4, 13)
-0001037: (0, 4, 14)
+0001037: (0, 4, 14) ...
+999999999 permutations and continues through the RGB value 255.255.255.255.
