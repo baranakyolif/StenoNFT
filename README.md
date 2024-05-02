@@ -4,6 +4,7 @@ The purpose of this system is to enable the images in NFTs used in game files to
 https://x.com/IONprotocols/status/1785614955162509605
 
 This image contains the full text of Solana's technical report. The original 53-page file has been compressed into an image. We are trying to integrate a more original version of the codes we provide under the title of image-to-image in our repository into another image losslessly and we have come a long way in this regard. https://x.com/IONprotocols/status/1784565876361965779  
+![Görünen Resim](https://github.com/baranakyolif/StenoNFT/assets/165828667/cfa315b1-4b7d-4e98-b2f7-18a05327a7cb)
 
 
  Where We Are in Data Compression (Steno-C ver_2.1) What is really exciting about our work is that we can achieve very high lossless compression by changing the form of the information. But it's too early to make any clear claims as the algorithms we have are still in the testing phase, so we want to complete all the testing before sharing the algorithms.  
