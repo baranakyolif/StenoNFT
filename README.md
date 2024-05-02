@@ -1,4 +1,7 @@
-Update: (23.04.2024)
+Update: (05.02.2024) STENO-C_2.0
+
+
+Update: (04.23.2024)
 A small architecture has been added to our project to select the optimal pixels without compromising the integrity of an image file.  This architecture is based on the algorithmic description of the propagation steps of a protista known in biology as Physarum polycephalum and the addition of this algorithm to Dijkstra's algorithm. These algorithms are optimization architecture designed to select the most suitable pixels for textual data to be hidden in an image.
 
 Code: https://github.com/baranakyolif/StenoNFT/blob/main/complexityoftransactions
@@ -10,7 +13,7 @@ The places represented in red in the image are where a total of 4000 ASCII chara
 ![image](https://github.com/baranakyolif/StenoNFT/assets/165828667/bd55f90b-57e0-452d-ad78-c37c50354baa)
 
 
-UPDATE 2: (28.04.2024)
+UPDATE 2: (04.28.2024)
 
 IMAGE IN PIXELS OF THE IMAGE
 This python code hides another image in the most relevant pixels of the image using the Least Significant
