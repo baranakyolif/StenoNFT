@@ -1,5 +1,14 @@
 Update: (05.02.2024) STENO-C_2.0
+The purpose of this system is to enable the images in NFTs used in game files to carry data so that users can sell their game assets and experiences to each other over NFTs. We will also be solving a major security problem by adding information codes to AI-generated images, labeling them as unauthentic. The ability of images to carry data will open the door to many innovations for NFTs and increase their use.
 
+https://x.com/IONprotocols/status/1785614955162509605
+
+This image contains the full text of Solana's technical report. The original 53-page file has been compressed into an image. We are trying to integrate a more original version of the codes we provide under the title of image-to-image in our repository into another image losslessly and we have come a long way in this regard. https://x.com/IONprotocols/status/1784565876361965779  
+
+
+ Where We Are in Data Compression (Steno-C ver_2.1) What is really exciting about our work is that we can achieve very high lossless compression by changing the form of the information. But it's too early to make any clear claims as the algorithms we have are still in the testing phase, so we want to complete all the testing before sharing the algorithms.  
+
+ 
 
 Update: (04.23.2024)
 A small architecture has been added to our project to select the optimal pixels without compromising the integrity of an image file.  This architecture is based on the algorithmic description of the propagation steps of a protista known in biology as Physarum polycephalum and the addition of this algorithm to Dijkstra's algorithm. These algorithms are optimization architecture designed to select the most suitable pixels for textual data to be hidden in an image.
