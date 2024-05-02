@@ -1103,18 +1103,4 @@ A SAMPLE USE CASE FOR THE INTERNET OF NFT - ARTIFICIAL INTELLIGENCE MODEL TRAINI
 This component covers the process of collecting images for visual artificial intelligence research using internet of nft and processing the labels into pixels of the image with shorthand. Users send STENO-images to a blockchain registered storage with the url address solana to create a custom model. Each image has tags embedded in its pixels. Through a parser, the tags of all the collected private images and the image itself are converted into a dataset for processing. Thus, a systematic dataset creation phase for the artificial intelligence model is realized.
 
 
-Dear Readers,
-
-In the realm of information technology, innovations and advancements are revolutionizing numerous sectors. Our project, rooted in these advancements, initially began by developing data compression techniques using stenographic methods, subsequently popularizing these technologies through the NFT market. However, our ultimate goal is to take this innovative approach a step further by providing novel solutions to data processing and scaling challenges.
-
-Stenography traditionally involves the covert transmission of information using visual or auditory symbols. At the project's inception, we utilized these techniques to optimize our data compression processes. Instead of using colors typically employed in stenography, we manipulated bits directly for data storage and processing. This method allowed us to compress data more efficiently, occupying less space, and we marketed these compressed datasets as NFTs.
-
-NFTs can be employed for a broad range of uses, from artworks to collectibles. Yet, we utilized this technology for a different purpose—to present and promote our data compression solutions. By accessing established communities through NFT platforms, we rapidly disseminated our innovative solutions, enhancing the visibility of our project and reaching a broader audience.
-
-After this initial phase, our focus will shift towards our primary future objective—data processing. The community support and recognition gained through NFTs provide a solid foundation for us to develop new algorithms and solutions centered on data processing and scaling. Our forthcoming endeavors in this area have the potential to revolutionize fields like big data management, artificial intelligence, and machine learning.
-
-In conclusion, our project started with stenographic data compression techniques and is expanding towards comprehensive data processing and scaling solutions. We are grateful to everyone who has supported and joined us on this journey, and we hope to continue providing solutions to the challenges faced by our community and industry with our upcoming innovations.
-
-Thank you for your interest.
-
-Best regards,
+ 
