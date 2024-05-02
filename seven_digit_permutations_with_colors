@@ -1,5 +1,8 @@
-The dictionary seven_digit_permutations_with_colors contains repeated permutations of all numbers with 7s and RGB values of 24. It works as a universal dictionary for Steno-C codes. The values below are just an example. Due to the file size, they are only shared to show the structure of the dictionary.
+The dictionary seven_digit_permutations_with_colors contains repeated permutations of all numbers with 7s and RGB values of 24. 
+It works as a universal dictionary for Steno-C codes. The values below are just an example. Due to the file size, they are only 
+shared to show the structure of the dictionary.
 
+seven_digit_permutations_with_colors:
 0000937: (0, 3, 170)
 0000938: (0, 3, 171)
 0000939: (0, 3, 172)
